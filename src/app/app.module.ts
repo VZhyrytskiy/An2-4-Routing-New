@@ -3,6 +3,8 @@ import { NgModule, NgModuleFactoryLoader } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { TasksModule } from './tasks/tasks.module';
+
 // Step 01. In case if we don't have access to index.html file
 // or <head> tag we add base tag programatially
 import { APP_BASE_HREF } from '@angular/common';
@@ -28,6 +30,7 @@ import { PageNotFoundComponent } from './components/page-not-found';
     BrowserModule,
     CommonModule,
     FormsModule,
+    TasksModule,
     // Step 04
     routing
   ],
