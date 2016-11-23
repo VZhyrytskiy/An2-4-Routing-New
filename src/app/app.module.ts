@@ -14,7 +14,6 @@ import { routing } from './app.routing';
 
 import { TodoAppComponent } from './app.component';
 // Step 04. Import components
-import { HomeComponent } from './components/home';
 import { AboutComponent } from './components/about';
 import { PageNotFoundComponent } from './components/page-not-found';
 
@@ -22,7 +21,6 @@ import { PageNotFoundComponent } from './components/page-not-found';
   declarations: [
     TodoAppComponent,
     // Step 04
-    HomeComponent,
     AboutComponent,
     PageNotFoundComponent
   ],
