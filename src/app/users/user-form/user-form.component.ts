@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { User } from './../../models/user';
 import { UserArrayService } from './../user-array-service/user-array.service';
+import { DialogService }  from './../../services/dialog.service';
 
 @Component({
   selector: 'user-form',
@@ -19,7 +20,8 @@ export class UserFormComponent implements OnInit, OnDestroy {
   constructor(
     private usersService: UserArrayService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
@@ -66,5 +68,15 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
   goBack() {
      this.router.navigate(['./../../'], { relativeTo: this.route});
+  }
+
+  canDeactivate(): Promise<boolean> | boolean {
+    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
+    if (!this.oldUser || this.oldUser.firstName === this.user.firstName) {
+      return true;
+    }
+    // Otherwise ask the user with the dialog service and return its
+    // promise which resolves to true or false when the user decides
+    return this.dialogService.confirm('Discard changes?');
   }
 }

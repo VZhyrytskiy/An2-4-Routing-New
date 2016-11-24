@@ -20,8 +20,10 @@ import { AboutComponent } from './components/about';
 import { PageNotFoundComponent } from './components/page-not-found';
 import { LoginComponent } from './components/login/login.component';
 
-import { AuthGuard } from './guards/auth.guard';
+import { DialogService } from './services/dialog.service';
 import { AuthService } from './services/auth.service';
+
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { AuthService } from './services/auth.service';
     routing
   ],
   providers: [
+    DialogService,
     AuthGuard,
     AuthService
     // Step 01

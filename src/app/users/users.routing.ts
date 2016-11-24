@@ -5,6 +5,8 @@ import { UsersComponent } from './users.component';
 import { UserListComponent } from './user-list';
 import { UserFormComponent } from './user-form';
 
+import { CanDeactivateGuard }    from './../guards/can-deactivate.guard';
+
 const usersRoutes: Routes = [
   {
     path: 'users',
@@ -21,6 +23,7 @@ const usersRoutes: Routes = [
       {
         path: 'edit/:id',
         component: UserFormComponent,
+        canDeactivate: [CanDeactivateGuard]
       }
     ]
   }

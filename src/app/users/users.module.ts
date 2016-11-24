@@ -10,6 +10,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { UserComponent } from './user/user.component';
 
 import { UserArrayService } from './user-array-service/user-array.service';
+import { CanDeactivateGuard }    from './../guards/can-deactivate.guard';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { UserArrayService } from './user-array-service/user-array.service';
   ],
   providers: [
     UserArrayService,
+    CanDeactivateGuard
   ]
 })
 export class UsersModule {}
