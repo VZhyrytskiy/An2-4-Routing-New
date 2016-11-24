@@ -1,0 +1,8 @@
+<h3>Admin</h3>
+<nav>
+  <a routerLink="./" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+  <a routerLink="./tasks" routerLinkActive="active">Manage Tasks</a>
+  <a routerLink="./users" routerLinkActive="active">Manage Users</a>
+</nav>
+<router-outlet></router-outlet>
