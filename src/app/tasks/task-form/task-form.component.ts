@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { Task } from './../../models/task';
@@ -16,6 +16,7 @@ export class TaskFormComponent implements OnInit, OnDestroy {
 
   constructor(
     private tasksService: TaskArrayService,
+    private router: Router,
     private route: ActivatedRoute
   ) { }
 
@@ -51,8 +52,13 @@ export class TaskFormComponent implements OnInit, OnDestroy {
     else {
       this.tasksService.addTask(task);
     }
+
+    this.router.navigate(["home"]);
   }
 
   goBack(): void {
+    this.router.navigate(["home"]);
+    // or 
+    // window.history.back();
   }
 }
