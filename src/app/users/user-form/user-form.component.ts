@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Subscription } from 'rxjs/Subscription';
 
@@ -19,6 +19,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
   constructor(
     private usersService: UserArrayService,
     private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +27,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
     this.sub = this.route.params.subscribe(params => {
       let id = +params["id"];
-      
+
       // NaN - for new user, id - for edit
       if (id) {
         this.usersService.getUser(id)
@@ -53,14 +54,17 @@ export class UserFormComponent implements OnInit, OnDestroy {
       this.usersService.updateUser(user);
       // if success
       this.oldUser = this.user;
-    } 
+    }
     else {
       this.usersService.addUser(user);
       // if success
       this.oldUser = this.user;
     }
+
+    this.router.navigate(['./../../'], { relativeTo: this.route});
   }
 
   goBack() {
+     this.router.navigate(['./../../'], { relativeTo: this.route});
   }
 }
