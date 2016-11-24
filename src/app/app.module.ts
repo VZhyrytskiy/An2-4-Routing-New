@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
-import { AdminModule } from './admin/admin.module';
 
 // Step 01. In case if we don't have access to index.html file
 // or <head> tag we add base tag programatially
@@ -21,8 +20,8 @@ import { PageNotFoundComponent } from './components/page-not-found';
 import { LoginComponent } from './components/login/login.component';
 
 import { DialogService } from './services/dialog.service';
-import { AuthService } from './services/auth.service';
 
+import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
@@ -39,14 +38,13 @@ import { AuthGuard } from './guards/auth.guard';
     FormsModule,
     TasksModule,
     UsersModule,
-    AdminModule,
     // Step 04
     routing
   ],
   providers: [
     DialogService,
-    AuthGuard,
-    AuthService
+    AuthService,
+    AuthGuard
     // Step 01
     // { provide: APP_BASE_HREF, useValue: '/' }
   ],
