@@ -20,6 +20,7 @@ import { AboutComponent } from './components/about';
 import { PageNotFoundComponent } from './components/page-not-found';
 
 import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AuthGuard } from './guards/auth.guard';
     routing
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    AuthService
     // Step 01
     // { provide: APP_BASE_HREF, useValue: '/' }
   ],
