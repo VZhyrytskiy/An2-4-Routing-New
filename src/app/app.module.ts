@@ -19,6 +19,8 @@ import { TodoAppComponent } from './app.component';
 import { AboutComponent } from './components/about';
 import { PageNotFoundComponent } from './components/page-not-found';
 
+import { AuthGuard } from './guards/auth.guard';
+
 @NgModule({
   declarations: [
     TodoAppComponent,
@@ -37,6 +39,7 @@ import { PageNotFoundComponent } from './components/page-not-found';
     routing
   ],
   providers: [
+    AuthGuard
     // Step 01
     // { provide: APP_BASE_HREF, useValue: '/' }
   ],

@@ -6,10 +6,13 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ManageTasksComponent }    from './manage-tasks/manage-tasks.component';
 import { ManageUsersComponent }    from './manage-users/manage-users.component';
 
+import { AuthGuard } from './../guards/auth.guard';
+
 const adminRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
