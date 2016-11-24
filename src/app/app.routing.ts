@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 // import { HomeComponent } from './components/home';
 import { AboutComponent } from './components/about';
 import { PageNotFoundComponent } from './components/page-not-found';
+import { LoginComponent } from './components/login';
 
 const appRoutes: Routes = [
   {
@@ -14,6 +15,10 @@ const appRoutes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  { 
+    path: 'login', 
+    component: LoginComponent 
   },
   {
     // The router will match this route if the URL requested 

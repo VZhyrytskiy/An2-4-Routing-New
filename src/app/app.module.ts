@@ -18,6 +18,7 @@ import { TodoAppComponent } from './app.component';
 // Step 04. Import components
 import { AboutComponent } from './components/about';
 import { PageNotFoundComponent } from './components/page-not-found';
+import { LoginComponent } from './components/login/login.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
@@ -27,7 +28,8 @@ import { AuthService } from './services/auth.service';
     TodoAppComponent,
     // Step 04
     AboutComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
