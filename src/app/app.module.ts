@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { TasksModule } from './tasks/tasks.module';
+import { UsersModule } from './users/users.module';
 
 // Step 01. In case if we don't have access to index.html file
 // or <head> tag we add base tag programatially
@@ -29,6 +30,7 @@ import { PageNotFoundComponent } from './components/page-not-found';
     CommonModule,
     FormsModule,
     TasksModule,
+    UsersModule,
     // Step 04
     routing
   ],
