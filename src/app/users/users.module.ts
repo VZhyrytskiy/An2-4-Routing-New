@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 
 import { UserArrayService } from './user-array-service/user-array.service';
 import { CanDeactivateGuard }    from './../guards/can-deactivate.guard';
+import { UserResolveGuard }    from './../guards/user-resolve.guard';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { CanDeactivateGuard }    from './../guards/can-deactivate.guard';
   ],
   providers: [
     UserArrayService,
-    CanDeactivateGuard
+    CanDeactivateGuard,
+    UserResolveGuard
   ]
 })
 export class UsersModule {}

@@ -1,8 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Subscription } from 'rxjs/Subscription';
-
 import { User } from './../../models/user';
 import { UserArrayService } from './../user-array-service/user-array.service';
 import { DialogService }  from './../../services/dialog.service';
@@ -15,7 +13,6 @@ import { DialogService }  from './../../services/dialog.service';
 export class UserFormComponent implements OnInit, OnDestroy {
   user: User;
   oldUser: User;
-  private sub: Subscription;
 
   constructor(
     private usersService: UserArrayService,
@@ -27,22 +24,13 @@ export class UserFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.user = new User(null, '', '');
 
-    this.sub = this.route.params.subscribe(params => {
-      let id = +params["id"];
-      
-      // NaN - for new user, id - for edit
-      if (id) {
-        this.usersService.getUser(id)
-          .then(user => {
-            this.user = Object.assign({}, user);
-            this.oldUser = user;
-          });
-      }
+    this.route.data.forEach((data: { user: User }) => {
+      this.user = Object.assign({}, data.user);
+      this.oldUser = data.user;
     });
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 
   saveUser() {

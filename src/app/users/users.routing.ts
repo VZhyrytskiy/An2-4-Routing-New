@@ -1,11 +1,12 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UsersComponent } from './users.component';
+import { UsersComponent }    from './users.component';
 import { UserListComponent } from './user-list';
 import { UserFormComponent } from './user-form';
 
-import { CanDeactivateGuard }    from './../guards/can-deactivate.guard';
+import { CanDeactivateGuard } from './../guards/can-deactivate.guard';
+import { UserResolveGuard }        from './../guards/user-resolve.guard';
 
 const usersRoutes: Routes = [
   {
@@ -23,7 +24,10 @@ const usersRoutes: Routes = [
       {
         path: 'edit/:id',
         component: UserFormComponent,
-        canDeactivate: [CanDeactivateGuard]
+        canDeactivate: [CanDeactivateGuard],
+        resolve: {
+          user: UserResolveGuard
+        }
       }
     ]
   }
