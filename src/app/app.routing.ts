@@ -5,6 +5,8 @@ import { AboutComponent } from './components/about';
 import { PageNotFoundComponent } from './components/page-not-found';
 import { LoginComponent } from './components/login';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -21,6 +23,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'admin',
+    canLoad: [AuthGuard],
     loadChildren: 'app/admin/admin.module#AdminModule'
   },
   {
