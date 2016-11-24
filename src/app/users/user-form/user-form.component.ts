@@ -27,7 +27,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
     this.sub = this.route.params.subscribe(params => {
       let id = +params["id"];
-
+      
       // NaN - for new user, id - for edit
       if (id) {
         this.usersService.getUser(id)
@@ -44,6 +44,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
   }
 
   saveUser() {
+    console.log("save")
     let user = new User(
       this.user.id,
       this.user.firstName,
@@ -52,16 +53,15 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
     if (user.id) {
       this.usersService.updateUser(user);
-      // if success
       this.oldUser = this.user;
-    }
+      // optional parameter: http://localhost:4200/users;id=2
+      this.router.navigate(['/users', {id: user.id}]);
+    } 
     else {
       this.usersService.addUser(user);
-      // if success
       this.oldUser = this.user;
+      this.router.navigate(['/users']);
     }
-
-    this.router.navigate(['./../../'], { relativeTo: this.route});
   }
 
   goBack() {
