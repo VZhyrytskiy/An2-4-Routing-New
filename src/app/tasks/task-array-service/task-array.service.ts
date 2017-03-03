@@ -36,7 +36,7 @@ export class TaskArrayService {
         return false;
       }
     });
-    
+
     if (i > -1) {
       taskList.splice(i,1,task);
     }
