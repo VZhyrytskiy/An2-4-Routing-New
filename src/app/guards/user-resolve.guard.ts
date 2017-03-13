@@ -8,18 +8,18 @@ import { UserArrayService } from './../users/user-array-service/user-array.servi
 export class UserResolveGuard implements Resolve<User> {
 
   constructor(
-    private userArrayService: UserArrayService, 
+    private userArrayService: UserArrayService,
     private router: Router
   ) {}
-  
-  resolve(route: ActivatedRouteSnapshot): Promise<User> | boolean {
+
+  resolve(route: ActivatedRouteSnapshot): Promise<User> {
     let id = +route.params['id'];
     console.log(`UserResolveGuard: ${id}`);
 
     return this.userArrayService.getUser(id).then(user => {
       if (user) {
         return user;
-      } 
+      }
       else { // id not found
         this.router.navigate(['/users']);
         return false;
