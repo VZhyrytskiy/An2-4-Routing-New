@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { Task } from './../../models/task';
-import { TaskArrayService } from './../task-array-service/task-array.service';
+import { TaskArrayService } from './../services/task-array.service';
 
 @Component({
   selector: 'task-form',
@@ -24,7 +24,7 @@ export class TaskFormComponent implements OnInit, OnDestroy {
 
     this.sub = this.route.params.subscribe(params => {
       let id = +params["id"];
-      
+
       // NaN - for new task, id - for edit
       if (id) {
         this.tasksService.getTask(id)
@@ -44,10 +44,10 @@ export class TaskFormComponent implements OnInit, OnDestroy {
       this.task.priority,
       this.task.estHours
     );
-    
+
     if (task.id) {
       this.tasksService.updateTask(task);
-    } 
+    }
     else {
       this.tasksService.addTask(task);
     }
