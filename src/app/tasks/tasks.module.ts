@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-import { TaskListComponent } from './task-list/task-list.component';
-import { TaskComponent } from './task/task.component';
-
-import { TaskArrayService } from './task-array-service/task-array.service';
+import { TaskListComponent, TaskComponent, TaskArrayService } from '.';
 
 @NgModule({
   declarations: [
