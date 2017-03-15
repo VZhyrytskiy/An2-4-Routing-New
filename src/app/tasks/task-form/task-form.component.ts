@@ -54,12 +54,10 @@ export class TaskFormComponent implements OnInit, OnDestroy {
       this.tasksService.addTask(task);
     }
 
-    this.router.navigate(["home"]);
+    this.router.navigate(['home']);
   }
 
   goBack(): void {
-    this.router.navigate(["home"]);
-    // or 
-    // window.history.back();
+    this.router.navigate(['home']);
   }
 }
