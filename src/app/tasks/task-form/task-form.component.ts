@@ -20,15 +20,16 @@ export class TaskFormComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.task = new Task(null, "", null, null);
+    this.task = new Task(null, '', null, null);
 
     this.sub = this.route.params.subscribe(params => {
-      let id = +params["id"];
+      let id = +params['id'];
 
       // NaN - for new task, id - for edit
       if (id) {
         this.tasksService.getTask(id)
-          .then(task => this.task = Object.assign({}, task));
+          .then(task => this.task = Object.assign({}, task))
+          .catch((err) => console.log(err));
       }
     });
   }
