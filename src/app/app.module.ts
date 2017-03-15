@@ -5,22 +5,21 @@ import { FormsModule } from '@angular/forms';
 
 // add this line if you don't have access to
 // index.html and you want to set base tag
-//import { APP_BASE_HREF } from '@angular/common';
+// import { APP_BASE_HREF } from '@angular/common';
 
+import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 import { TodoAppComponent } from './app.component';
-import { AboutComponent, HomeComponent, PageNotFoundComponent } from './components';
 
 @NgModule({
   declarations: [
     TodoAppComponent,
-    AboutComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    appRouterComponents
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [
     // add this line if you don't have access to
