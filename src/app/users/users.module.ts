@@ -4,8 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { usersRouting } from './users.routing';
 
-import { UsersComponent } from './users.component';
-import { UserListComponent, UserComponent, UserFormComponent, UserArrayService } from '.';
+import { UsersComponent, UserListComponent, UserComponent, UserFormComponent, UserArrayService } from '.';
 
 @NgModule({
   imports: [
