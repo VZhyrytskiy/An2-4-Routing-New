@@ -1,9 +1,7 @@
-import { ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './components/home';
-import { AboutComponent } from './components/about';
-import { PageNotFoundComponent } from './components/page-not-found';
+import { AboutComponent, HomeComponent, PageNotFoundComponent } from './components';
 
 const appRoutes: Routes = [
   {
@@ -27,4 +25,11 @@ const appRoutes: Routes = [
   }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export let appRouterComponents = [AboutComponent, HomeComponent, PageNotFoundComponent];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes)
+  ]
+})
+export class AppRoutingModule {}
