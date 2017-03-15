@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { Task } from './../../models/task';
 
 @Component({
@@ -17,6 +18,6 @@ export class TaskComponent {
   }
 
   editTask(task: Task) {
-    
+
   }
 }
