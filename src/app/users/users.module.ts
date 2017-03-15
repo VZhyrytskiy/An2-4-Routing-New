@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-import { usersRouting } from './users.routing';
+import { UsersRoutingModule, usersRouterComponents } from './users.routing.module';
 
-import { UsersComponent, UserListComponent, UserComponent, UserFormComponent, UserArrayService } from '.';
+import { UserComponent, UserArrayService } from '.';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    usersRouting
+    RouterModule,
+    UsersRoutingModule
   ],
   declarations: [
-    UsersComponent,
-    UserListComponent,
-    UserFormComponent,
+    usersRouterComponents,
     UserComponent,
   ],
   providers: [
