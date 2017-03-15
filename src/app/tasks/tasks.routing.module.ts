@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TaskListComponent } from '.';
+import { TaskListComponent, TaskFormComponent } from '.';
 
 const tasksRoutes: Routes = [
   {
     path: 'home',
     component: TaskListComponent
+  },
+  {
+    path: 'edit/:id',
+    component: TaskFormComponent
   }
 ];
 

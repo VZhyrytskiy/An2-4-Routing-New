@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 
 import { TasksRoutingModule } from './tasks.routing.module';
 
-import { TaskListComponent, TaskComponent, TaskArrayService } from '.';
+import { TaskListComponent, TaskComponent, TaskFormComponent, TaskArrayService } from '.';
+
 
 @NgModule({
   declarations: [
     TaskListComponent,
-    TaskComponent
+    TaskComponent,
+    TaskFormComponent
   ],
   imports: [
     CommonModule,

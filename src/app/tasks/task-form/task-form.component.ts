@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Task } from './../../models/task';
-import { TaskArrayService } from './../task-array-service/task-array.service';
+import { TaskArrayService } from './../services/task-array.service';
 
 @Component({
   selector: 'task-form',
@@ -16,7 +16,7 @@ export class TaskFormComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.task = new Task(null, "", null, null);
+    this.task = new Task(null, '', null, null);
   }
 
   ngOnDestroy(): void {
@@ -30,10 +30,10 @@ export class TaskFormComponent implements OnInit, OnDestroy {
       this.task.estHours
     );
 
-    
+
     if (task.id) {
       this.tasksService.updateTask(task);
-    } 
+    }
     else {
       this.tasksService.addTask(task);
     }
