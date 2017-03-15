@@ -17,10 +17,10 @@ export class UserComponent {
   ) { }
 
   editUser(user: User) {
-  	let link = ['users/edit', user.id];
+    let link = ['users/edit', user.id];
     this.router.navigate(link);
 
-  	// or
+    // or
     // let link = ['edit', user.id];
     // this.router.navigate(link, {relativeTo: this.route});
   }
