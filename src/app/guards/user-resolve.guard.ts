@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 import { User } from './../models/user';
-import { UserArrayService } from './../users/user-array-service/user-array.service';
+import { UserArrayService } from './../users/services/user-array.service';
 
 @Injectable()
 export class UserResolveGuard implements Resolve<User> {
@@ -21,8 +21,8 @@ export class UserResolveGuard implements Resolve<User> {
         return user;
       }
       else { // id not found
-        this.router.navigate(['/users']);
-        return false;
+        this.router.navigate(['users']);
+        return null;
       }
     });
   }

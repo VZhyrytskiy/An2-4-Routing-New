@@ -10,19 +10,19 @@ import { AuthService } from './../services/auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private router: Router
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    console.log("canActivate Guard is called");
+    console.log('canActivate Guard is called');
     let url: string = state.url;
 
     return this.checkLogin(url);
   }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    console.log("canActivateChild Guard is called");
+    console.log('canActivateChild Guard is called');
     return this.canActivate(route, state);
   }
 
@@ -44,6 +44,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
     // Navigate to the login page with extras
     this.router.navigate(['/login'], navigationExtras);
+
     return false;
   }
 }
