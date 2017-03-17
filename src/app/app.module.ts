@@ -1,23 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NgModuleFactoryLoader } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { AdminModule } from './admin/admin.module';
 
-// Step 01. In case if we don't have access to index.html file
-// or <head> tag we add base tag programatially
-import { APP_BASE_HREF } from '@angular/common';
+// add this line if you don't have access to
+// index.html and you want to set base tag
+// import { APP_BASE_HREF } from '@angular/common';
 
-// Step 04. Import routing
-import { routing } from './app.routing';
-
+import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 import { TodoAppComponent } from './app.component';
-// Step 04. Import components
-import { AboutComponent } from './components/about';
-import { PageNotFoundComponent } from './components/page-not-found';
 import { LoginComponent } from './components/login/login.component';
 
 import { AuthGuard } from './guards/auth.guard';
@@ -26,10 +22,8 @@ import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [
     TodoAppComponent,
-    // Step 04
-    AboutComponent,
-    PageNotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    appRouterComponents
   ],
   imports: [
     BrowserModule,
@@ -38,13 +32,15 @@ import { AuthService } from './services/auth.service';
     TasksModule,
     UsersModule,
     AdminModule,
-    // Step 04
-    routing
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [
     AuthGuard,
     AuthService
-    // Step 01
+
+    // add this line if you don't have access to
+    // index.html and you want to set base tag
     // { provide: APP_BASE_HREF, useValue: '/' }
   ],
   entryComponents: [TodoAppComponent],
