@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from './../../models/user';
-import { UserArrayService } from './../user-array-service/user-array.service';
 import { DialogService }  from './../../services/dialog.service';
+import { UserArrayService } from './../services/user-array.service';
 
 @Component({
   selector: 'user-form',
@@ -34,7 +34,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
   }
 
   saveUser() {
-    console.log("save")
+    console.log('save')
     let user = new User(
       this.user.id,
       this.user.firstName,
@@ -45,12 +45,12 @@ export class UserFormComponent implements OnInit, OnDestroy {
       this.usersService.updateUser(user);
       this.oldUser = this.user;
       // optional parameter: http://localhost:4200/users;id=2
-      this.router.navigate(['/users', {id: user.id}]);
-    } 
+      this.router.navigate(['users', {id: user.id}]);
+    }
     else {
       this.usersService.addUser(user);
       this.oldUser = this.user;
-      this.router.navigate(['/users']);
+      this.router.navigate(['users']);
     }
   }
 
@@ -59,7 +59,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
   }
 
   canDeactivate(): Promise<boolean> | boolean {
-    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
+    // Allow synchronous navigation (`true`)
     if (!this.oldUser || this.oldUser.firstName === this.user.firstName) {
       return true;
     }

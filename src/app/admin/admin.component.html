@@ -1,8 +1,15 @@
 <h3>Admin</h3>
 <nav>
-  <a routerLink="./" routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }" preserveQueryParams preserveFragment>Dashboard</a>
-  <a routerLink="./tasks" routerLinkActive="active" preserveQueryParams preserveFragment>Manage Tasks</a>
-  <a routerLink="./users" routerLinkActive="active" preserveQueryParams preserveFragment>Manage Users</a>
+  <ul class="nav nav-tabs">
+    <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <a [routerLink]="['./']" preserveQueryParams preserveFragment>Dashboard</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['./tasks']" preserveQueryParams preserveFragment>Manage Tasks</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['./users']" preserveQueryParams preserveFragment>Manage Users</a>
+    </li>
+  </ul>
 </nav>
 <router-outlet></router-outlet>

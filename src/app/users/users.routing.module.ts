@@ -1,12 +1,10 @@
-import { ModuleWithProviders }  from '@angular/core';
+import { NgModule }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UsersComponent }    from './users.component';
-import { UserListComponent } from './user-list';
-import { UserFormComponent } from './user-form';
+import { UsersComponent, UserListComponent, UserFormComponent } from '.';
 
 import { CanDeactivateGuard } from './../guards/can-deactivate.guard';
-import { UserResolveGuard }        from './../guards/user-resolve.guard';
+import { UserResolveGuard } from './../guards/user-resolve.guard';
 
 const usersRoutes: Routes = [
   {
@@ -33,4 +31,11 @@ const usersRoutes: Routes = [
   }
 ];
 
-export const usersRouting: ModuleWithProviders = RouterModule.forChild(usersRoutes);
+export let usersRouterComponents = [UsersComponent, UserListComponent, UserFormComponent];
+
+@NgModule({
+  imports: [
+    RouterModule.forChild(usersRoutes)
+  ]
+})
+export class UsersRoutingModule { }
