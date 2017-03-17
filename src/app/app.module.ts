@@ -14,7 +14,6 @@ import { AdminModule } from './admin/admin.module';
 
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 import { TodoAppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
@@ -22,7 +21,6 @@ import { AuthService } from './services/auth.service';
 @NgModule({
   declarations: [
     TodoAppComponent,
-    LoginComponent,
     appRouterComponents
   ],
   imports: [
