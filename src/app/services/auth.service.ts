@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
+import './rxjs-extensions';
 
 @Injectable()
 export class AuthService {
-  isLoggedIn: boolean = false;
+  isLoggedIn = false;
 
   // store the URL so we can redirect after logging in
   redirectUrl: string;
