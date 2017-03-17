@@ -34,7 +34,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
   }
 
   saveUser() {
-    console.log("save")
+    console.log('save')
     let user = new User(
       this.user.id,
       this.user.firstName,
@@ -45,12 +45,12 @@ export class UserFormComponent implements OnInit, OnDestroy {
       this.usersService.updateUser(user);
       this.oldUser = this.user;
       // optional parameter: http://localhost:4200/users;id=2
-      this.router.navigate(['/users', {id: user.id}]);
+      this.router.navigate(['users', {id: user.id}]);
     }
     else {
       this.usersService.addUser(user);
       this.oldUser = this.user;
-      this.router.navigate(['/users']);
+      this.router.navigate(['users']);
     }
   }
 

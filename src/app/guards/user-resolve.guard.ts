@@ -21,7 +21,7 @@ export class UserResolveGuard implements Resolve<User> {
         return user;
       }
       else { // id not found
-        this.router.navigate(['/users']);
+        this.router.navigate(['users']);
         return false;
       }
     });
