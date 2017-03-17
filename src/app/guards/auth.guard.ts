@@ -9,7 +9,7 @@ import { AuthService } from './../services/auth.service';
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
   constructor(
-    private authService: AuthService, 
+    private authService: AuthService,
     private router: Router
   ) {}
 
@@ -31,8 +31,8 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     // Store the attempted URL for redirecting
     this.authService.redirectUrl = url;
 
-    // Navigate to the login page with extras
-    this.router.navigate(['/login']);
+    // Navigate to the login
+    this.router.navigate(['login']);
     return false;
   }
 }
