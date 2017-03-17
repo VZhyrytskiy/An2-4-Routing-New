@@ -22,7 +22,7 @@ export class UserResolveGuard implements Resolve<User> {
       }
       else { // id not found
         this.router.navigate(['users']);
-        return false;
+        return null;
       }
     });
   }
