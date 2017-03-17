@@ -4,9 +4,9 @@ import 'rxjs/add/operator/toPromise';
 import { Task } from './../../models/task';
 
 let taskList = [
-  new Task(1, "Estimate", 1, 8, 8, true),
-  new Task(2, "Create", 2, 8, 4, false),
-  new Task(3, "Deploy", 3, 8, 0, false)
+  new Task(1, 'Estimate', 1, 8, 8, true),
+  new Task(2, 'Create', 2, 8, 4, false),
+  new Task(3, 'Deploy', 3, 8, 0, false)
 ];
 
 let taskListPromise = Promise.resolve(taskList);
@@ -20,7 +20,8 @@ export class TaskArrayService {
 
   getTask(id: number) {
     return this.getTasks()
-      .then(tasks => tasks.find(task => task.id === id));
+      .then(tasks => tasks.find(task => task.id === id))
+      .catch(() => Promise.reject('Error in getTask method'));
   }
 
   addTask(task: Task) {
@@ -38,7 +39,7 @@ export class TaskArrayService {
     });
 
     if (i > -1) {
-      taskList.splice(i,1,task);
+      taskList.splice(i, 1, task);
     }
   }
 }

@@ -1,9 +1,7 @@
-import { ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AboutComponent } from './components/about';
-import { PageNotFoundComponent } from './components/page-not-found';
-import { LoginComponent } from './components/login';
+import { AboutComponent, PageNotFoundComponent, LoginComponent } from './components';
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -34,4 +32,11 @@ const appRoutes: Routes = [
   }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
+export let appRouterComponents = [AboutComponent, PageNotFoundComponent, LoginComponent];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes)
+  ]
+})
+export class AppRoutingModule { }
