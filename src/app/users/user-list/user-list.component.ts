@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import { User } from './../../models/user';
-import { UserArrayService } from './../user-array-service/user-array.service';
+import { UserArrayService } from './../services/user-array.service';
 
 @Component({
   selector: 'user-list',
@@ -23,7 +22,8 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.usersService.getUsers()
-          .then(users => this.users = users);
+      .then(users => this.users = users)
+      .catch((err) => console.log(err));
 
     // listen id from UserFormComponent
     this.sub = this.route.params
@@ -34,6 +34,7 @@ export class UserListComponent implements OnInit, OnDestroy {
           console.log(`Last time you edit user with id ${this.selectedUserId}`);
         }
       });
+
   }
 
   ngOnDestroy() {
