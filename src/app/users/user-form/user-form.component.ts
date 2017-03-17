@@ -72,7 +72,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
   }
 
   canDeactivate(): Promise<boolean> | boolean {
-    // Allow synchronous navigation (`true`) if no crisis or the crisis is unchanged
+    // Allow synchronous navigation (`true`)
     if (!this.oldUser || this.oldUser.firstName === this.user.firstName) {
       return true;
     }
