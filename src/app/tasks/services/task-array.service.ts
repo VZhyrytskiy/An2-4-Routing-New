@@ -13,21 +13,21 @@ const taskListPromise = Promise.resolve(taskList);
 @Injectable()
 export class TaskArrayService {
 
-  getTasks() {
+  getTasks(): Promise<Task[]> {
     return taskListPromise;
   }
 
-  getTask(id: number) {
+  getTask(id: number): Promise<Task> {
     return this.getTasks()
       .then(tasks => tasks.find(task => task.id === id))
       .catch(() => Promise.reject('Error in getTask method'));
   }
 
-  addTask(task: Task) {
+  addTask(task: Task): void {
     taskList.push(task);
   }
 
-  updateTask(task: Task) {
+  updateTask(task: Task): void {
     let i = -1;
 
     taskList.forEach((item, index) => {
@@ -40,5 +40,9 @@ export class TaskArrayService {
     if (i > -1) {
       taskList.splice(i, 1, task);
     }
+  }
+
+  completeTask(task): void {
+    task.done = true;
   }
 }
