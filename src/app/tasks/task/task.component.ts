@@ -21,7 +21,7 @@ export class TaskComponent {
   }
 
   editTask(task: Task) {
-    let link = ['edit', task.id];
+    const link = ['edit', task.id];
     this.router.navigate(link);
   }
 }
