@@ -40,7 +40,7 @@ export class TaskFormComponent implements OnInit, OnDestroy {
   }
 
   saveTask() {
-    let task = new Task(
+    const task = new Task(
       this.task.id,
       this.task.action,
       this.task.priority,
