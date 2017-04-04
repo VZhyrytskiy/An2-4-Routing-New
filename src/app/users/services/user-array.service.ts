@@ -12,21 +12,21 @@ const userListPromise = Promise.resolve(userList);
 
 @Injectable()
 export class UserArrayService {
-  getUsers() {
+  getUsers(): Promise<User[]> {
     return userListPromise;
   }
 
-  getUser(id: number) {
+  getUser(id: number): Promise<User> {
     return this.getUsers()
       .then(users => users.find(user => user.id === id))
       .catch(() => Promise.reject('Error in getUser method'));
   }
 
-  addUser(user: User) {
+  addUser(user: User): void {
     userList.push(user);
   }
 
-  updateUser(user: User) {
+  updateUser(user: User): void {
     let i = -1;
 
     userList.forEach((item, index) => {
