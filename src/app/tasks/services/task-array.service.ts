@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/toPromise';
 
 import { Task } from './../../models/task';
 
-let taskList = [
+const taskList = [
   new Task(1, 'Estimate', 1, 8, 8, true),
   new Task(2, 'Create', 2, 8, 4, false),
   new Task(3, 'Deploy', 3, 8, 0, false)
 ];
 
-let taskListPromise = Promise.resolve(taskList);
+const taskListPromise = Promise.resolve(taskList);
 
 @Injectable()
 export class TaskArrayService {
