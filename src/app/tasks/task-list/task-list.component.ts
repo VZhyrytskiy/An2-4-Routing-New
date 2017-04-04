@@ -22,6 +22,6 @@ export class TaskListComponent implements OnInit {
   }
 
   completeTask(task: Task): void {
-    task.done = true;
+    this.tasksService.completeTask(task);
   }
 }
