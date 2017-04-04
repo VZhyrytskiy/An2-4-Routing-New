@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/toPromise';
 
 import { User } from './../../models/user';
 
-let userList = [
+const userList = [
   new User(1, 'Anna', 'Borisova'),
   new User(2, 'Boris', 'Vlasov'),
   new User(3, 'Gennadiy', 'Dmitriev')
 ];
 
-let userListPromise = Promise.resolve(userList);
+const userListPromise = Promise.resolve(userList);
 
 @Injectable()
 export class UserArrayService {
