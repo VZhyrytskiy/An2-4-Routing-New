@@ -13,6 +13,6 @@ export class UserComponent {
   constructor(
   ) { }
 
-  editUser(user: User) {
+  editUser() {
   }
 }
