@@ -17,7 +17,7 @@ export class TaskComponent {
     this.onComplete.emit(this.task);
   }
 
-  editTask(task: Task) {
+  editTask() {
 
   }
 }
