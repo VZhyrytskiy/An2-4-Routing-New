@@ -6,7 +6,6 @@ import { Task } from './../../models/task';
 import { TaskArrayService } from './../services/task-array.service';
 
 @Component({
-  selector: 'task-form',
   templateUrl: 'task-form.component.html',
   styleUrls: ['task-form.component.css']
 })
