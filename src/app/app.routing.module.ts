@@ -3,12 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AboutComponent, HomeComponent, PageNotFoundComponent } from './components';
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
@@ -16,6 +11,11 @@ const appRoutes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
   },
   {
     // The router will match this route if the URL requested
@@ -29,7 +29,12 @@ export let appRouterComponents = [AboutComponent, HomeComponent, PageNotFoundCom
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(routes)
+  ],
+  // re-export RouterModule in order to have access
+  // to its directives in main module.
+  exports: [
+    RouterModule
   ]
 })
 export class AppRoutingModule {}
