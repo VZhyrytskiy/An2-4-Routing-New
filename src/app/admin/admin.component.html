@@ -2,13 +2,13 @@
 <nav>
   <ul class="nav nav-tabs">
     <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-      <a [routerLink]="['./']">Dashboard</a>
+      <a routerLink="./">Dashboard</a>
     </li>
     <li routerLinkActive="active">
-      <a [routerLink]="['./tasks']">Manage Tasks</a>
+      <a routerLink="./tasks">Manage Tasks</a>
     </li>
     <li routerLinkActive="active">
-      <a [routerLink]="['./users']">Manage Users</a>
+      <a routerLink="./users">Manage Users</a>
     </li>
   </ul>
 </nav>
