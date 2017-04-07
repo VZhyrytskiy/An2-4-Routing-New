@@ -1,21 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-
-import { Subscription } from 'rxjs/Subscription';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { User } from './../../models/user';
 import { DialogService }  from './../../services/dialog.service';
 import { UserArrayService } from './../services/user-array.service';
 
+import 'rxjs/add/operator/switchMap';
+
 @Component({
-  selector: 'user-form',
   templateUrl: 'user-form.component.html',
   styleUrls: ['user-form.component.css'],
 })
 export class UserFormComponent implements OnInit, OnDestroy {
   user: User;
   oldUser: User;
-  private sub: Subscription;
 
   constructor(
     private usersService: UserArrayService,
@@ -27,28 +25,24 @@ export class UserFormComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.user = new User(null, '', '');
 
-    this.sub = this.route.params.subscribe(params => {
-      let id = +params['id'];
-
-      // NaN - for new user, id - for edit
-      if (id) {
-        this.usersService.getUser(id)
-          .then(user => {
-            this.user = Object.assign({}, user);
-            this.oldUser = user;
-          })
-          .catch((err) => console.log(err));
-      }
-    });
+    // it is not necessary to save subscription to route.params
+    // it handles automatically
+    this.route.params
+      .switchMap((params: Params) => this.usersService.getUser(+params['id']))
+      .subscribe(
+        user => {
+          this.user = Object.assign({}, user);
+          this.oldUser = user;
+        },
+        err => console.log(err)
+    );
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe();
   }
 
   saveUser() {
-    console.log("save")
-    let user = new User(
+    const user = new User(
       this.user.id,
       this.user.firstName,
       this.user.lastName
