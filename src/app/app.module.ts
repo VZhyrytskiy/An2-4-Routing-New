@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
@@ -21,11 +20,9 @@ import { TodoAppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     FormsModule,
     TasksModule,
     UsersModule,
-    RouterModule,
     AppRoutingModule
   ],
   providers: [
@@ -37,5 +34,8 @@ import { TodoAppComponent } from './app.component';
   bootstrap: [TodoAppComponent]
 })
 export class AppModule {
-
+  // Diagnostic only: inspect router configuration
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
 }
