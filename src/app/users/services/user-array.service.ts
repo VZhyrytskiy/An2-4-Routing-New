@@ -16,9 +16,9 @@ export class UserArrayService {
     return userListPromise;
   }
 
-  getUser(id: number): Promise<User> {
+  getUser(id: number | string): Promise<User> {
     return this.getUsers()
-      .then(users => users.find(user => user.id === id))
+      .then(users => users.find(user => user.id === +id))
       .catch(() => Promise.reject('Error in getUser method'));
   }
 

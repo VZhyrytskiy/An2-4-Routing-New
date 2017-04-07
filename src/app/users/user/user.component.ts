@@ -17,7 +17,7 @@ export class UserComponent {
   ) { }
 
   editUser() {
-    const link = ['users/edit', this.user.id];
+    const link = ['/users/edit', this.user.id];
     this.router.navigate(link);
 
     // or

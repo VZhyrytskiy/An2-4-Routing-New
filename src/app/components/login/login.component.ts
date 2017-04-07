@@ -4,7 +4,6 @@ import { Router, NavigationExtras } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 
 @Component({
-  selector: 'login',
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css']
 })
