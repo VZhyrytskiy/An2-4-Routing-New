@@ -4,7 +4,6 @@ import { Task } from './../../models/task';
 import { TaskArrayService } from './../services/task-array.service';
 
 @Component({
-  selector: 'task-list',
   templateUrl: 'task-list.component.html',
   styleUrls: ['task-list.component.css']
 })
