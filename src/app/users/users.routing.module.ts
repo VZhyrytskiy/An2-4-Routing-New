@@ -8,7 +8,7 @@ import { UserResolveGuard } from './../guards/user-resolve.guard';
 
 const routes: Routes = [
   {
-    path: 'users',
+    path: '',
     component: UsersComponent,
     children: [
       {
@@ -26,7 +26,7 @@ const routes: Routes = [
       {
         path: '',
         component: UserListComponent
-      },
+      }
     ]
   }
 ];

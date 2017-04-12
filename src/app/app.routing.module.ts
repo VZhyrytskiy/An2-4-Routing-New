@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: 'app/admin/admin.module#AdminModule'
   },
   {
+    path: 'users',
+    loadChildren: 'app/users/users.module#UsersModule'
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { TasksModule } from './tasks/tasks.module';
-import { UsersModule } from './users/users.module';
 
 // add this line if you don't have access to
 // index.html and you want to set base tag
@@ -27,7 +26,6 @@ import { AuthGuard } from './guards/auth.guard';
     BrowserModule,
     FormsModule,
     TasksModule,
-    UsersModule,
     AppRoutingModule
   ],
   providers: [
