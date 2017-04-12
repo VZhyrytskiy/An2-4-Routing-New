@@ -5,12 +5,7 @@ import { AboutComponent, PageNotFoundComponent, LoginComponent } from './compone
 
 import { AuthGuard } from './guards/auth.guard';
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
@@ -25,6 +20,15 @@ const appRoutes: Routes = [
     loadChildren: 'app/admin/admin.module#AdminModule'
   },
   {
+    path: 'users',
+    loadChildren: 'app/users/users.module#UsersModule'
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
+  {
     // The router will match this route if the URL requested
     // doesn't match any paths for routes defined in our configuration
     path: '**',
@@ -36,7 +40,12 @@ export let appRouterComponents = [AboutComponent, PageNotFoundComponent, LoginCo
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(routes)
+  ],
+  // re-export RouterModule in order to have access
+  // to its directives in main module.
+  exports: [
+    RouterModule
   ]
 })
 export class AppRoutingModule { }
