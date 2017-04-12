@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AboutComponent, PageNotFoundComponent, LoginComponent } from './components';
-
 import { AuthGuard } from './guards/auth.guard';
+import { CustomPreloadingStrategyService } from './services';
 
 const routes: Routes = [
   {
@@ -21,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    loadChildren: 'app/users/users.module#UsersModule'
+    loadChildren: 'app/users/users.module#UsersModule',
+    data: { preload: true }
   },
   {
     path: '',
@@ -40,7 +41,10 @@ export let appRouterComponents = [AboutComponent, PageNotFoundComponent, LoginCo
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules})
+    RouterModule.forRoot(routes, { preloadingStrategy: CustomPreloadingStrategyService })
+  ],
+  providers: [
+    CustomPreloadingStrategyService
   ],
   // re-export RouterModule in order to have access
   // to its directives in main module.
