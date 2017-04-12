@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AboutComponent, PageNotFoundComponent, LoginComponent } from './components';
 
@@ -40,7 +40,7 @@ export let appRouterComponents = [AboutComponent, PageNotFoundComponent, LoginCo
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules})
   ],
   // re-export RouterModule in order to have access
   // to its directives in main module.
