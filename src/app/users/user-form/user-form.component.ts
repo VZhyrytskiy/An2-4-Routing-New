@@ -19,7 +19,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     private userArrayService: UserArrayService,
     private route: ActivatedRoute,
     private router: Router,
-    public dialogService: DialogService
+    private dialogService: DialogService
   ) { }
 
   ngOnInit(): void {
