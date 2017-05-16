@@ -11,11 +11,11 @@ export class UserListComponent implements OnInit, OnDestroy {
   users: Array<User>;
 
   constructor(
-    private usersService: UserArrayService,
+    private userArrayService: UserArrayService,
   ) { }
 
   ngOnInit() {
-    this.usersService.getUsers()
+    this.userArrayService.getUsers()
       .then(users => this.users = users)
       .catch((err) => console.log(err));
   }
