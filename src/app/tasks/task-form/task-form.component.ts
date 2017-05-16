@@ -11,7 +11,7 @@ export class TaskFormComponent implements OnInit, OnDestroy {
   task: Task;
 
   constructor(
-    private tasksService: TaskArrayService,
+    private taskArrayService: TaskArrayService,
   ) { }
 
   ngOnInit(): void {
@@ -31,10 +31,10 @@ export class TaskFormComponent implements OnInit, OnDestroy {
 
 
     if (task.id) {
-      this.tasksService.updateTask(task);
+      this.taskArrayService.updateTask(task);
     }
     else {
-      this.tasksService.addTask(task);
+      this.taskArrayService.addTask(task);
     }
   }
 
