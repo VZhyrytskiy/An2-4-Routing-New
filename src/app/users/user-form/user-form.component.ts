@@ -15,7 +15,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
   oldUser: User;
 
   constructor(
-    private usersService: UserArrayService,
+    private userArrayService: UserArrayService,
     private route: ActivatedRoute,
   ) { }
 
@@ -25,7 +25,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     // it is not necessary to save subscription to route.params
     // it handles automatically
     this.route.params
-      .switchMap((params: Params) => this.usersService.getUser(+params['id']))
+      .switchMap((params: Params) => this.userArrayService.getUser(+params['id']))
       .subscribe(
         user => {
           this.user = Object.assign({}, user);
@@ -46,12 +46,12 @@ export class UserFormComponent implements OnInit, OnDestroy {
     );
 
     if (user.id) {
-      this.usersService.updateUser(user);
+      this.userArrayService.updateUser(user);
       // if success
       this.oldUser = this.user;
     }
     else {
-      this.usersService.addUser(user);
+      this.userArrayService.addUser(user);
       // if success
       this.oldUser = this.user;
     }
