@@ -12,7 +12,7 @@ import { AdminModule } from './admin/admin.module';
 // import { APP_BASE_HREF } from '@angular/common';
 
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
-import { TodoAppComponent } from './app.component';
+import { AppComponent } from './app.component';
 
 import { DialogService } from './services/dialog.service';
 import { AuthService } from './services/auth.service';
@@ -21,7 +21,7 @@ import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
-    TodoAppComponent,
+    AppComponent,
     appRouterComponents
   ],
   imports: [
@@ -41,8 +41,7 @@ import { AuthGuard } from './guards/auth.guard';
     // index.html and you want to set base tag
     // { provide: APP_BASE_HREF, useValue: '/' }
   ],
-  entryComponents: [TodoAppComponent],
-  bootstrap: [TodoAppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
   // Diagnostic only: inspect router configuration
