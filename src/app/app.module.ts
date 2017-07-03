@@ -3,11 +3,11 @@ import { NgModule, NgModuleFactoryLoader } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { TodoAppComponent } from './app.component';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    TodoAppComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -16,8 +16,7 @@ import { TodoAppComponent } from './app.component';
   ],
   providers: [
   ],
-  entryComponents: [TodoAppComponent],
-  bootstrap: [TodoAppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 
