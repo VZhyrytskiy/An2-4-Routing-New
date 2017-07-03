@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 
 // add this line if you don't have access to
 // index.html and you want to set base tag
-//import { APP_BASE_HREF } from '@angular/common';
+// import { APP_BASE_HREF } from '@angular/common';
 
-import { TodoAppComponent } from './app.component';
+import { AppComponent } from './app.component';
 import { AboutComponent, HomeComponent, PageNotFoundComponent } from './components';
 
 @NgModule({
   declarations: [
-    TodoAppComponent,
+    AppComponent,
     AboutComponent,
     HomeComponent,
     PageNotFoundComponent
@@ -27,8 +27,7 @@ import { AboutComponent, HomeComponent, PageNotFoundComponent } from './componen
     // index.html and you want to set base tag
     // { provide: APP_BASE_HREF, useValue: '/' }
   ],
-  entryComponents: [TodoAppComponent],
-  bootstrap: [TodoAppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 
