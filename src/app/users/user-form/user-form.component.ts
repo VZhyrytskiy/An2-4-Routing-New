@@ -7,12 +7,12 @@ import { UserArrayService } from './../services/user-array.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-  templateUrl: 'user-form.component.html',
-  styleUrls: ['user-form.component.css'],
+  templateUrl: './user-form.component.html',
+  styleUrls: ['./user-form.component.css'],
 })
 export class UserFormComponent implements OnInit, OnDestroy {
   user: User;
-  oldUser: User;
+  originalUser: User;
 
   constructor(
     private userArrayService: UserArrayService,
@@ -30,7 +30,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
       .subscribe(
         user => {
           this.user = Object.assign({}, user);
-          this.oldUser = user;
+          this.originalUser = Object.assign({}, user);
         },
         err => console.log(err)
     );
@@ -49,15 +49,15 @@ export class UserFormComponent implements OnInit, OnDestroy {
     if (user.id) {
       this.userArrayService.updateUser(user);
       // if success
-      this.oldUser = this.user;
+      this.originalUser = Object.assign({}, this.user);
       // optional parameter: http://localhost:4200/users;id=2
       this.router.navigate(['/users', {id: user.id}]);
     }
     else {
       this.userArrayService.addUser(user);
       // if success
-      this.oldUser = this.user;
-      this.router.navigate(['/users']);
+      this.originalUser = Object.assign({}, this.user);
+      this.goBack();
     }
   }
 
