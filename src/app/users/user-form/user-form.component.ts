@@ -57,7 +57,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
       this.originalUser = Object.assign({}, this.user);
     }
 
-    this.router.navigate(['./../../'], { relativeTo: this.route});
+    this.goBack();
   }
 
   goBack() {
