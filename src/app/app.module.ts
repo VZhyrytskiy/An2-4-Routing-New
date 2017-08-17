@@ -33,7 +33,7 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
 
     // add this line if you don't have access to
     // index.html and you want to set base tag
