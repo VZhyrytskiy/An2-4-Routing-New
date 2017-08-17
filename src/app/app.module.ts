@@ -13,11 +13,14 @@ import { AdminModule } from './admin/admin.module';
 
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 import { AppComponent } from './app.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { MessagesService } from './services';
 
 @NgModule({
   declarations: [
     AppComponent,
-    appRouterComponents
+    appRouterComponents,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { AppComponent } from './app.component';
     // add this line if you don't have access to
     // index.html and you want to set base tag
     // { provide: APP_BASE_HREF, useValue: '/' }
+    MessagesService
   ],
   bootstrap: [AppComponent]
 })
