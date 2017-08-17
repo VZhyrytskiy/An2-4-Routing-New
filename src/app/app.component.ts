@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { MessagesService } from './services';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private sub: Subscription;
 
   constructor(
+    public messagesService: MessagesService,
     private titleService: Title,
     private router: Router
   ) { }
@@ -22,6 +24,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  displayMessages(): void {
+    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
+    this.messagesService.isDisplayed = true;
+  }
+
+  hideMessages(): void {
+    this.router.navigate([{ outlets: { popup: null } }]);
+    this.messagesService.isDisplayed = false;
   }
 
   /**
