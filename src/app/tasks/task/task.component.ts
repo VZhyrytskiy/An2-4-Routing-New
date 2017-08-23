@@ -13,7 +13,7 @@ export class TaskComponent {
 
   constructor() { }
 
-  completeTask(event: any): void {
+  completeTask(): void {
     this.onComplete.emit(this.task);
   }
 
