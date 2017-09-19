@@ -8,8 +8,12 @@ export class MessagesService {
 
   constructor() { }
 
-  addMessage(message: string):void {
+  addMessage(message: string): void {
     const currentDate = new Date();
     this.messages.unshift(`${message} at ${currentDate.toLocaleString()}`);
+  }
+
+  getMessages(): Array<string> {
+    return this.messages;
   }
 }
