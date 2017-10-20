@@ -9,21 +9,10 @@ import { MessagesService } from './services';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
   constructor(
-    public messagesService: MessagesService,
-    private router: Router
+    private router: Router,
+    public messagesService: MessagesService
   ) { }
-
-  displayMessages(): void {
-    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
-    this.messagesService.isDisplayed = true;
-  }
-
-  hideMessages(): void {
-    this.router.navigate([{ outlets: { popup: null } }]);
-    this.messagesService.isDisplayed = false;
-  }
 
   /**
    * @param $event - component instance
@@ -34,5 +23,10 @@ export class AppComponent {
 
   onDeactivate($event) {
     console.log('Deactivated Component', $event);
+  }
+
+  displayMessages(): void {
+    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
+    this.messagesService.isDisplayed = true;
   }
  }
