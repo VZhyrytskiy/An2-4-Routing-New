@@ -13,8 +13,8 @@ import { AdminModule } from './admin/admin.module';
 
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './components/messages/messages.component';
 import { MessagesService } from './services';
+import { MessagesComponent } from './components';
 
 import { DialogService } from './services/dialog.service';
 import { AuthService } from './services/auth.service';
