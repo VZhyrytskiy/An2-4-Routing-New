@@ -31,7 +31,7 @@ export class UserListComponent implements OnInit, OnDestroy {
       .subscribe(
         (user: User) => {
           this.editedUser = Object.assign({}, user);
-          console.log(`Last time you edit user ${JSON.stringify(this.editedUser)}`);
+          console.log(`Last time you edited user ${JSON.stringify(this.editedUser)}`);
         },
         (err) => console.log(err)
       );
