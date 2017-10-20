@@ -12,8 +12,8 @@ import { UsersModule } from './users/users.module';
 
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 import { AppComponent } from './app.component';
-import { MessagesComponent } from './components/messages/messages.component';
 import { MessagesService } from './services';
+import { MessagesComponent } from './components';
 
 @NgModule({
   declarations: [
