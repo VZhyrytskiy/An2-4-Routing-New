@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 // add this line if you don't have access to
 // index.html and you want to set base tag
-//import { APP_BASE_HREF } from '@angular/common';
+// import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AboutComponent, HomeComponent, PageNotFoundComponent } from './components';
