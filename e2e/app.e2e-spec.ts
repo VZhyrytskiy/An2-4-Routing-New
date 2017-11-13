@@ -1,14 +1,14 @@
-import { An24RoutingNewPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('an2-4-routing-new App', function() {
-  let page: An24RoutingNewPage;
+describe('an App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new An24RoutingNewPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
