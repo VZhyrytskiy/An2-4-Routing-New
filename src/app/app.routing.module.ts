@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules, ExtraOptions } from '@angular/router';
 
 import { AboutComponent, MessagesComponent, LoginComponent, PageNotFoundComponent,  } from './components';
 
@@ -43,9 +43,14 @@ const routes: Routes = [
 
 export let appRouterComponents = [AboutComponent, PageNotFoundComponent, LoginComponent];
 
+const extraOptions: ExtraOptions = {
+  preloadingStrategy: PreloadAllModules,
+  enableTracing: true  // Makes the router log all its internal events to the console.
+};
+
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules})
+    RouterModule.forRoot(routes, extraOptions)
   ],
   // re-export RouterModule in order to have access
   // to its directives in main module.
