@@ -26,8 +26,8 @@ export class UserListComponent implements OnInit, OnDestroy {
       .catch((err) => console.log(err));
 
     // listen id from UserFormComponent
-    this.route.params
-      .switchMap((params: Params) => this.userArrayService.getUser(+params['id']))
+    this.route.paramMap
+      .switchMap((params: Params) => this.userArrayService.getUser(+params.get('id')))
       .subscribe(
         (user: User) => {
           this.editedUser = Object.assign({}, user);
