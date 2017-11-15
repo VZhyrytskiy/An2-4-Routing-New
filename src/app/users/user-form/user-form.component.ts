@@ -24,15 +24,24 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
     // it is not necessary to save subscription to route.paramMap
     // it handles automatically
-    this.route.paramMap
-      .switchMap((params: Params) => this.userArrayService.getUser(+params.get('id')))
-      .subscribe(
-        user => {
-          this.user = Object.assign({}, user);
-          this.originalUser = Object.assign({}, user);
-        },
-        err => console.log(err)
-    );
+    // this.route.paramMap
+    //   .switchMap((params: Params) => this.userArrayService.getUser(+params.get('id')))
+    //   .subscribe(
+    //     user => {
+    //       this.user = Object.assign({}, user);
+    //       this.originalUser = Object.assign({}, user);
+    //     },
+    //     err => console.log(err)
+    // );
+
+    // we should recreate component because this coderuns only once
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.userArrayService.getUser(id)
+      .then(user => {
+        this.user = Object.assign({}, user);
+        this.originalUser = Object.assign({}, user);
+      })
+      .catch(err => console.log(err));
   }
 
   ngOnDestroy(): void {
