@@ -27,8 +27,9 @@ export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactiv
   ngOnInit(): void {
     this.user = new User(null, '', '');
 
-    // data is an object which contains custm data and resolve data
-    this.route.data.forEach(data => {
+    // data is an observable object
+    // which contains custom and resolve data
+    this.route.data.subscribe(data => {
       this.user = Object.assign({}, data.user);
       this.originalUser = Object.assign({}, data.user);
     });
