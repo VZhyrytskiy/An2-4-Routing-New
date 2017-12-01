@@ -8,14 +8,10 @@ import { FormsModule } from '@angular/forms';
 // import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { AboutComponent, HomeComponent, PageNotFoundComponent } from './components';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AboutComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
