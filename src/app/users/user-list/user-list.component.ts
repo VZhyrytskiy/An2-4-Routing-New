@@ -16,8 +16,8 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.userArrayService.getUsers()
-      .then(users => this.users = users)
-      .catch((err) => console.log(err));
+      .then(users => this.users = [...users])
+      .catch(err => console.log(err));
   }
 
   ngOnDestroy() {
