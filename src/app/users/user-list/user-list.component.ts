@@ -22,18 +22,18 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.userArrayService.getUsers()
-      .then(users => this.users = users)
-      .catch((err) => console.log(err));
+      .then(users => this.users = [...users])
+      .catch(err => console.log(err));
 
     // listen id from UserFormComponent
     this.route.paramMap
       .switchMap((params: Params) => this.userArrayService.getUser(+params.get('id')))
       .subscribe(
         (user: User) => {
-          this.editedUser = Object.assign({}, user);
+          this.editedUser = {...user};
           console.log(`Last time you edited user ${JSON.stringify(this.editedUser)}`);
         },
-        (err) => console.log(err)
+        err => console.log(err)
       );
 
   }
