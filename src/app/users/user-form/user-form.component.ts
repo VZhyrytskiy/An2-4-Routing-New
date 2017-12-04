@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { User } from './../../models/user';
 import { DialogService } from './../../services/dialog.service';
 import { UserArrayService } from './../services/user-array.service';
-import { CanComponentDeactivate } from './../../guards/can-component-deactivate.interface';
+import { CanComponentDeactivate } from './../../interfaces/can-component-deactivate';
 
 import 'rxjs/add/operator/switchMap';
 
@@ -59,14 +59,12 @@ export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactiv
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    const flags = [];
-    for (const key in this.originalUser) {
+    const flags = Object.keys(this.originalUser).map(key => {
       if (this.originalUser[key] === this.user[key]) {
-        flags.push(true);
-      } else {
-        flags.push(false);
+        return true;
       }
-    }
+      return false;
+    });
 
     if (flags.every(el => el)) {
       return true;
