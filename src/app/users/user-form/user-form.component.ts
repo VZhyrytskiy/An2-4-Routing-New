@@ -27,8 +27,8 @@ export class UserFormComponent implements OnInit, OnDestroy {
     const id = +this.route.snapshot.paramMap.get('id');
     this.userArrayService.getUser(id)
       .then(user => {
-        this.user = Object.assign({}, user);
-        this.originalUser = Object.assign({}, user);
+        this.user = {...user};
+        this.originalUser = {...user};
       })
       .catch(err => console.log(err));
   }
@@ -37,24 +37,17 @@ export class UserFormComponent implements OnInit, OnDestroy {
   }
 
   saveUser() {
-    const user = new User(
-      this.user.id,
-      this.user.firstName,
-      this.user.lastName
-    );
+    const user = {...this.user};
 
     if (user.id) {
       this.userArrayService.updateUser(user);
-      // if success
-      this.originalUser = Object.assign({}, this.user);
       // optional parameter: http://localhost:4200/users;id=2
       this.router.navigate(['/users', {id: user.id}]);
     } else {
       this.userArrayService.addUser(user);
-      // if success
-      this.originalUser = Object.assign({}, this.user);
       this.goBack();
     }
+    this.originalUser = {...this.user};
   }
 
   goBack() {
