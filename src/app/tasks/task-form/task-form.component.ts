@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Task } from './../../models/task';
+import { Task } from './../models/task.model';
 import { TaskArrayService } from './../services/task-array.service';
 
 @Component({
