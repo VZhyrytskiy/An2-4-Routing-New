@@ -21,6 +21,10 @@ export class TaskListComponent implements OnInit {
     this.taskArrayService.completeTask(task);
   }
 
+  editTask(task: Task): void {
+    
+  }
+
   private async getTasks() {
     this.tasks = await this.taskArrayService.getTasks();
   }
