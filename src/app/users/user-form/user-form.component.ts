@@ -24,7 +24,7 @@ export class UserFormComponent implements OnInit {
     this.user = new User(null, '', '');
 
     // we should recreate component because this code runs only once
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('userID');
     this.userArrayService.getUser(id)
       .subscribe(
         user => {
