@@ -1,20 +1,20 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-import { Task } from './../../models/task';
+import { Task } from './../models/task.model';
 
 @Component({
-  selector: 'task',
+  selector: 'app-task',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
   @Input()  task: Task;
-  @Output() onComplete = new EventEmitter<Task>();
+  @Output() complete = new EventEmitter<Task>();
 
   constructor() { }
 
   completeTask(): void {
-    this.onComplete.emit(this.task);
+    this.complete.emit(this.task);
   }
 
   editTask() {
