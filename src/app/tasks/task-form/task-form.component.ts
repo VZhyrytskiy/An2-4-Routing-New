@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 // rxjs
@@ -11,7 +11,7 @@ import { TaskArrayService } from './../services/task-array.service';
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css']
 })
-export class TaskFormComponent implements OnInit, OnDestroy {
+export class TaskFormComponent implements OnInit {
   task: Task;
 
   constructor(
@@ -31,9 +31,6 @@ export class TaskFormComponent implements OnInit, OnDestroy {
         task => this.task = {...task},
         err => console.log(err)
     );
-  }
-
-  ngOnDestroy(): void {
   }
 
   saveTask() {
