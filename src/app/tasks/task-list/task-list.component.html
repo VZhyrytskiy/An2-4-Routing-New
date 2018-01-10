@@ -1,8 +1,8 @@
-<task 
-  *ngFor='let task of tasks' 
+<app-task 
+  *ngFor="let task of tasks" 
   [task]="task"
-  (onComplete)="completeTask($event)">
-</task>
+  (complete)="completeTask($event)">
+</app-task>
 
 
 
