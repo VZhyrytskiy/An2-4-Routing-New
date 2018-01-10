@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Task } from './../models/task.model';
 import { TaskArrayService } from './../services/task-array.service';
@@ -7,7 +7,7 @@ import { TaskArrayService } from './../services/task-array.service';
   templateUrl: './task-form.component.html',
   styleUrls: ['./task-form.component.css']
 })
-export class TaskFormComponent implements OnInit, OnDestroy {
+export class TaskFormComponent implements OnInit {
   task: Task;
 
   constructor(
@@ -16,9 +16,6 @@ export class TaskFormComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.task = new Task(null, '', null, null);
-  }
-
-  ngOnDestroy(): void {
   }
 
   saveTask() {
