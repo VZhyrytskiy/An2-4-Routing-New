@@ -42,7 +42,7 @@ export class UserFormComponent implements OnInit {
     if (user.id) {
       this.userArrayService.updateUser(user);
       // optional parameter: http://localhost:4200/users;id=2
-      this.router.navigate(['/users', {id: user.id}]);
+      this.router.navigate(['/users', {editedUserID: user.id}]);
     } else {
       this.userArrayService.addUser(user);
       this.goBack();

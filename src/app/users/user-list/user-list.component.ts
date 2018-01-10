@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import 'rxjs/add/operator/switchMap';
-
 // rxjs
 import { Observable } from 'rxjs/Observable';
-import { catchError } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 
 import { User } from './../models/user.model';
 import { UserArrayService } from './../services/user-array.service';
@@ -28,9 +26,11 @@ export class UserListComponent implements OnInit {
   ngOnInit() {
     this.users$ = this.userArrayService.getUsers();
 
-    // listen id from UserFormComponent
+    // listen editedUserID from UserFormComponent
     this.route.paramMap
-      .switchMap((params: Params) => this.userArrayService.getUser(+params.get('id')))
+      .pipe(
+        switchMap((params: Params) => this.userArrayService.getUser(+params.get('editedUserID')))
+      )
       .subscribe(
         (user: User) => {
           this.editedUser = {...user};
