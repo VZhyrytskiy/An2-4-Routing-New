@@ -1,7 +1,8 @@
-<user 
-  *ngFor='let user of users' 
-  [user]="user">
-</user>
+<app-user 
+  *ngFor='let user of users$ | async' 
+  [user]="user"
+  (edit)="editUser($event)">
+</app-user>
 
 
 
