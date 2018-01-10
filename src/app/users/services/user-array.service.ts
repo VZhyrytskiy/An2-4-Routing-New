@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 // rxjs
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/Observable/of';
+import { of } from 'rxjs/observable/of';
 import { map, catchError } from 'rxjs/operators';
 
 import { User } from './../models/user.model';
