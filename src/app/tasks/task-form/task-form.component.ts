@@ -3,7 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import 'rxjs/add/operator/switchMap';
 
-import { Task } from './../../models/task';
+import { Task } from './../models/task.model';
 import { TaskArrayService } from './../services/task-array.service';
 
 @Component({
