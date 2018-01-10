@@ -1,7 +1,8 @@
 <app-task 
   *ngFor="let task of tasks" 
   [task]="task"
-  (complete)="completeTask($event)">
+  (complete)="completeTask($event)"
+  (edit)="editTask($event)">
 </app-task>
 
 
