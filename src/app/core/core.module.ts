@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { MessagesComponent } from './components';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService, MessagesService } from './services';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [MessagesComponent],
+  declarations: [MessagesComponent, LoginComponent],
   providers: [
     MessagesService,
     AuthGuard,

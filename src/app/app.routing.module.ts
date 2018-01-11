@@ -31,7 +31,7 @@ const routes: Routes = [
   }
 ];
 
-export let appRouterComponents = [AboutComponent, PageNotFoundComponent, LoginComponent];
+export let appRouterComponents = [AboutComponent, PageNotFoundComponent];
 
 @NgModule({
   imports: [
