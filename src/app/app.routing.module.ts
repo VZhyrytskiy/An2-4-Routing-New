@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules, ExtraOptions } from '@angular/router';
 
-import { AboutComponent, MessagesComponent, LoginComponent, PageNotFoundComponent,  } from './components';
+import { AboutComponent, PageNotFoundComponent } from './components';
+import { MessagesComponent, LoginComponent, AuthGuard } from './core';
 
-import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -41,7 +41,7 @@ const routes: Routes = [
   }
 ];
 
-export let appRouterComponents = [AboutComponent, PageNotFoundComponent, LoginComponent];
+export let appRouterComponents = [AboutComponent, PageNotFoundComponent];
 
 const extraOptions: ExtraOptions = {
   preloadingStrategy: PreloadAllModules,
