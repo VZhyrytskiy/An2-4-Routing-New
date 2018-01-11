@@ -15,8 +15,6 @@ import { AdminModule } from './admin/admin.module';
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 import { AppComponent } from './app.component';
 
-import { AuthGuard } from './guards/auth.guard';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +30,6 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule
   ],
   providers: [
-    AuthGuard,
-
     // add this line if you don't have access to
     // index.html and you want to set base tag
     // { provide: APP_BASE_HREF, useValue: '/' }
