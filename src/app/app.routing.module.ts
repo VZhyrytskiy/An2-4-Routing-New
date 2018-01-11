@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AboutComponent, MessagesComponent, LoginComponent, PageNotFoundComponent,  } from './components';
+import { AboutComponent, PageNotFoundComponent } from './components';
+import { MessagesComponent, LoginComponent } from './core/components';
 
 const routes: Routes = [
   {
@@ -38,7 +39,7 @@ const routes: Routes = [
   }
 ];
 
-export let appRouterComponents = [AboutComponent, PageNotFoundComponent, LoginComponent];
+export let appRouterComponents = [AboutComponent, PageNotFoundComponent];
 
 @NgModule({
   imports: [
