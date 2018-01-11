@@ -1,8 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
+
+// rxjs
 import { Subscription } from 'rxjs/Subscription';
-import { MessagesService } from './services';
+
+import { MessagesService } from './core/services';
 
 @Component({
   selector: 'app-root',
