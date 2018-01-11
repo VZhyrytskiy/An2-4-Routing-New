@@ -1,15 +1,20 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MessagesService } from './services';
+
 import { MessagesComponent } from './components';
 import { AuthGuard } from './guards/auth.guard';
+import { AuthService, MessagesService } from './services';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [MessagesComponent],
-  providers: [MessagesService, AuthGuard]
+  providers: [
+    MessagesService,
+    AuthGuard,
+    AuthService
+  ]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
