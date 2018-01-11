@@ -1,19 +1,19 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
+// rxjs
 import { Observable } from 'rxjs/Observable';
+import { switchMap } from 'rxjs/operators';
 
-import { User } from './../../models/user';
-import { DialogService } from './../../services/dialog.service';
+import { DialogService, CanComponentDeactivate } from './../../shared';
+import { User } from './../models/user.model';
 import { UserArrayService } from './../services/user-array.service';
-import { CanComponentDeactivate } from './../../interfaces/can-component-deactivate';
-
-import 'rxjs/add/operator/switchMap';
 
 @Component({
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.css'],
 })
-export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactivate {
+export class UserFormComponent implements OnInit, CanComponentDeactivate {
   user: User;
   originalUser: User;
 
@@ -35,16 +35,13 @@ export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactiv
     });
   }
 
-  ngOnDestroy(): void {
-  }
-
   saveUser() {
     const user = {...this.user};
 
     if (user.id) {
       this.userArrayService.updateUser(user);
       // optional parameter: http://localhost:4200/users;id=2
-      this.router.navigate(['users', { id: user.id }]);
+      this.router.navigate(['/users', {editedUserID: user.id}]);
     } else {
       this.userArrayService.addUser(user);
       this.goBack();
