@@ -1,19 +1,20 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { User } from './../../models/user';
-import { DialogService } from './../../services/dialog.service';
-import { UserArrayService } from './../services/user-array.service';
-import { CanComponentDeactivate } from './../../interfaces/can-component-deactivate';
+// rxjs
+import { switchMap } from 'rxjs/operators';
 
-import 'rxjs/add/operator/switchMap';
+import { DialogService } from './../../services/dialog.service';
+import { CanComponentDeactivate } from './../../interfaces/can-component-deactivate';
+import { User } from './../models/user.model';
+import { UserArrayService } from './../services/user-array.service';
 
 @Component({
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.css'],
 })
-export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactivate {
+export class UserFormComponent implements OnInit, CanComponentDeactivate {
   user: User;
   originalUser: User;
 
@@ -28,16 +29,15 @@ export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactiv
     this.user = new User(null, '', '');
 
     // we should recreate component because this code runs only once
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = +this.route.snapshot.paramMap.get('userID');
     this.userArrayService.getUser(id)
-      .then(user => {
-        this.user = {...user};
-        this.originalUser = {...user};
-      })
-      .catch(err => console.log(err));
-  }
-
-  ngOnDestroy(): void {
+      .subscribe(
+        user => {
+          this.user = {...user};
+          this.originalUser = {...user};
+        },
+        err => console.log(err)
+      );
   }
 
   saveUser() {
@@ -46,7 +46,7 @@ export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactiv
     if (user.id) {
       this.userArrayService.updateUser(user);
       // optional parameter: http://localhost:4200/users;id=2
-      this.router.navigate(['/users', {id: user.id}]);
+      this.router.navigate(['/users', {editedUserID: user.id}]);
     } else {
       this.userArrayService.addUser(user);
       this.goBack();

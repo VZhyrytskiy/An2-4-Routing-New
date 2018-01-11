@@ -15,7 +15,7 @@ const routes: Routes = [
         component: UserFormComponent
       },
       {
-        path: 'edit/:id',
+        path: 'edit/:userID',
         component: UserFormComponent,
         canDeactivate: [CanDeactivateGuard]
       },
