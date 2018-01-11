@@ -3,9 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { CoreModule } from './core/core.module';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { AdminModule } from './admin/admin.module';
+import { SharedModule } from './shared/shared.module';
 
 // add this line if you don't have access to
 // index.html and you want to set base tag
@@ -13,37 +15,26 @@ import { AdminModule } from './admin/admin.module';
 
 import { AppRoutingModule, appRouterComponents } from './app.routing.module';
 import { AppComponent } from './app.component';
-import { MessagesService } from './services';
-import { MessagesComponent } from './components';
-
-import { DialogService } from './services/dialog.service';
-import { AuthService } from './services/auth.service';
-
-import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    appRouterComponents,
-    MessagesComponent
+    appRouterComponents
   ],
   imports: [
     BrowserModule,
     FormsModule,
     TasksModule,
+    CoreModule,
     UsersModule,
     AdminModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [
-    AuthGuard,
-    AuthService,
-    DialogService,
-
     // add this line if you don't have access to
     // index.html and you want to set base tag
     // { provide: APP_BASE_HREF, useValue: '/' }
-    MessagesService
   ],
   bootstrap: [AppComponent]
 })
