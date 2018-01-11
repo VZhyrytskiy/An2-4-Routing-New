@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { UsersComponent, UserListComponent, UserFormComponent } from '.';
 
-import { CanDeactivateGuard } from './../guards/can-deactivate.guard';
+import { CanDeactivateGuard } from './../shared';
 
 const routes: Routes = [
   {
@@ -32,9 +32,6 @@ export let usersRouterComponents = [UsersComponent, UserListComponent, UserFormC
 @NgModule({
   imports: [
     RouterModule.forChild(routes)
-  ],
-  providers: [
-    CanDeactivateGuard
   ],
   exports: [
     RouterModule

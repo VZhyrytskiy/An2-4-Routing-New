@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { AdminModule } from './admin/admin.module';
+import { SharedModule } from './shared/shared.module';
 
 // add this line if you don't have access to
 // index.html and you want to set base tag
@@ -27,7 +28,8 @@ import { AppComponent } from './app.component';
     CoreModule,
     UsersModule,
     AdminModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [
     // add this line if you don't have access to

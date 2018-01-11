@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 
 // rxjs
+import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
 
-import { DialogService } from './../../services/dialog.service';
-import { CanComponentDeactivate } from './../../interfaces/can-component-deactivate';
+import { DialogService, CanComponentDeactivate } from './../../shared';
 import { User } from './../models/user.model';
 import { UserArrayService } from './../services/user-array.service';
 
