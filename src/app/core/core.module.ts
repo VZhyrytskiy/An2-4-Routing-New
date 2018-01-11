@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { MessagesComponent } from './components';
 import { AuthGuard } from './guards/auth.guard';
-import { AuthService, MessagesService } from './services';
+import { AuthService, MessagesService, CustomPreloadingStrategyService } from './services';
 import { LoginComponent } from './components/login/login.component';
+
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { LoginComponent } from './components/login/login.component';
   providers: [
     MessagesService,
     AuthGuard,
-    AuthService
+    AuthService,
+    CustomPreloadingStrategyService
   ]
 })
 export class CoreModule {

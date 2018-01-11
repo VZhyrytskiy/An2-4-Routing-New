@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
-import { CustomPreloadingStrategyService } from './services';
-
 import { AboutComponent, PageNotFoundComponent } from './components';
-import { MessagesComponent, LoginComponent, AuthGuard } from './core';
+import { MessagesComponent, LoginComponent, AuthGuard, CustomPreloadingStrategyService } from './core';
 
 
 const routes: Routes = [
@@ -54,9 +52,6 @@ const extraOptions: ExtraOptions = {
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, extraOptions)
-  ],
-  providers: [
-    CustomPreloadingStrategyService
   ],
   // re-export RouterModule in order to have access
   // to its directives in main module.
