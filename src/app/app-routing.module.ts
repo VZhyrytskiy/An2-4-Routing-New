@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AboutComponent, PageNotFoundComponent } from './components';
+import { AboutComponent, PathNotFoundComponent } from './core';
 
 const routes: Routes = [
   {
@@ -17,11 +17,9 @@ const routes: Routes = [
     // The router will match this route if the URL requested
     // doesn't match any paths for routes defined in our configuration
     path: '**',
-    component: PageNotFoundComponent
+    component: PathNotFoundComponent
   }
 ];
-
-export let appRouterComponents = [AboutComponent, PageNotFoundComponent];
 
 @NgModule({
   imports: [
