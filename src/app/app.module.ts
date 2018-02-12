@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
@@ -8,9 +7,10 @@ import { Router } from '@angular/router';
 // index.html and you want to set base tag
 // import { APP_BASE_HREF } from '@angular/common';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './app-routing.module';
+
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,6 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     FormsModule,
     CoreModule,
     AppRoutingModule
