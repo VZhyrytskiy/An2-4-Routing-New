@@ -20,7 +20,8 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     CommonModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    AppRoutingModule
   ],
   providers: [
     // add this line if you don't have access to
