@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
@@ -16,7 +15,6 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    CommonModule,
     FormsModule,
     CoreModule
   ],
