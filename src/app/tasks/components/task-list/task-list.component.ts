@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Task } from './../models/task.model';
-import { TaskArrayService } from './../services/task-array.service';
+import { Task } from './../../models/task.model';
+import { TaskArrayService } from './../../services/task-array.service';
 
 @Component({
   templateUrl: './task-list.component.html',
@@ -17,12 +17,12 @@ export class TaskListComponent implements OnInit {
     this.getTasks().catch(err => console.log(err));
   }
 
-  completeTask(task: Task): void {
+  onCompleteTask(task: Task): void {
     this.taskArrayService.completeTask(task);
   }
 
-  editTask(task: Task): void {
-    
+  onEditTask(task: Task): void {
+
   }
 
   private async getTasks() {
