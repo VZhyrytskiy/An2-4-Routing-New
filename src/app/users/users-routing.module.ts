@@ -26,12 +26,9 @@ const routes: Routes = [
 
 export let usersRouterComponents = [UsersComponent, UserListComponent, UserFormComponent];
 
+
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class UsersRoutingModule { }
+export class UsersRoutingModule {}
