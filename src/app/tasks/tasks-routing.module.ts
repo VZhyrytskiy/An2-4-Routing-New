@@ -9,7 +9,7 @@ const routes: Routes = [
     component: TaskListComponent
   },
   {
-    path: 'edit/:id',
+    path: 'edit/:taskID',
     component: TaskFormComponent
   }
 ];
@@ -18,8 +18,6 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes)
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
 export class TasksRoutingModule { }
