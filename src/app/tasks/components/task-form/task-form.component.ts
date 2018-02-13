@@ -4,8 +4,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 // rxjs
 import { switchMap } from 'rxjs/operators';
 
-import { Task } from './../models/task.model';
-import { TaskArrayService } from './../services/task-array.service';
+import { Task } from './../../models/task.model';
+import { TaskArrayService } from './../../services/task-array.service';
 
 @Component({
   templateUrl: './task-form.component.html',
