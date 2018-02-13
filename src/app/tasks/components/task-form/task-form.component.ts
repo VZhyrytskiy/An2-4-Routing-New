@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Task } from './../models/task.model';
-import { TaskArrayService } from './../services/task-array.service';
+import { Task } from './../../models/task.model';
+import { TaskArrayService } from './../../services/task-array.service';
 
 @Component({
   templateUrl: './task-form.component.html',
