@@ -24,7 +24,7 @@ export class UserListComponent implements OnInit {
     this.users$ = this.userArrayService.getUsers();
   }
 
-  editUser(user: User) {
+  onEditUser(user: User) {
     const link = ['/users/edit', user.id];
     this.router.navigate(link);
     // or
