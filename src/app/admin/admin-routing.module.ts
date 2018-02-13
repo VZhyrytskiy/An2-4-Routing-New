@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AdminComponent, AdminDashboardComponent, ManageTasksComponent, ManageUsersComponent } from '.';
+import {
+  AdminComponent,
+  AdminDashboardComponent,
+  ManageTasksComponent,
+  ManageUsersComponent
+} from '.';
 
 const routes: Routes = [
   {
@@ -20,12 +25,15 @@ const routes: Routes = [
   }
 ];
 
-export let adminRouterComponents = [AdminComponent, AdminDashboardComponent, ManageTasksComponent, ManageUsersComponent];
+export const adminRouterComponents = [
+  AdminComponent,
+  AdminDashboardComponent,
+  ManageTasksComponent,
+  ManageUsersComponent
+];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes)
-  ],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}
