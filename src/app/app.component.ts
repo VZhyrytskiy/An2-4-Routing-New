@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MessagesService } from './core/services';
+import { MessagesService } from './core';
 
 @Component({
   selector: 'app-root',

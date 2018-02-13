@@ -3,10 +3,10 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 // rxjs
 import { Observable } from 'rxjs/Observable';
-import { catchError, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
-import { User } from './../models/user.model';
-import { UserArrayService } from './../services/user-array.service';
+import { User } from './../../models/user.model';
+import { UserArrayService } from './../../services/user-array.service';
 
 @Component({
   templateUrl: './user-list.component.html',
@@ -40,7 +40,7 @@ export class UserListComponent implements OnInit {
       );
   }
 
-  editUser(user: User) {
+  onEditUser(user: User) {
     const link = ['/users/edit', user.id];
     this.router.navigate(link);
     // or
