@@ -8,7 +8,7 @@ import {
   ManageUsersComponent
 } from '.';
 
-import { AuthGuard } from './../core/guards/auth.guard';
+import { AuthGuard } from './../core';
 
 const routes: Routes = [
   {

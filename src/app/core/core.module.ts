@@ -5,9 +5,9 @@ import {
   AboutComponent,
   MessagesComponent,
   PathNotFoundComponent,
+  AuthGuard,
   MessagesService
 } from '.';
-import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   imports: [CommonModule],
