@@ -26,7 +26,7 @@ export class TaskFormComponent implements OnInit {
     // it handles automatically
     this.route.paramMap
       .pipe(
-        switchMap((params: Params) => this.taskArrayService.getTask(+params.get('id'))))
+        switchMap((params: Params) => this.taskArrayService.getTask(+params.get('taskID'))))
       .subscribe(
         task => this.task = {...task},
         err => console.log(err)
