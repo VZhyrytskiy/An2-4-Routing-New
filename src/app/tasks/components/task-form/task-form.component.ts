@@ -5,8 +5,8 @@ import { Location } from '@angular/common';
 // rxjs
 import { switchMap } from 'rxjs/operators';
 
-import { Task } from './../models/task.model';
-import { TaskArrayService } from './../services/task-array.service';
+import { Task } from './../../models/task.model';
+import { TaskArrayService } from './../../services/task-array.service';
 
 @Component({
   templateUrl: './task-form.component.html',
@@ -28,7 +28,7 @@ export class TaskFormComponent implements OnInit {
     // it handles automatically
     this.route.paramMap
       .pipe(
-        switchMap((params: Params) => this.taskArrayService.getTask(+params.get('id'))))
+        switchMap((params: Params) => this.taskArrayService.getTask(+params.get('taskID'))))
       .subscribe(
         task => this.task = {...task},
         err => console.log(err)

@@ -1,26 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { CoreModule } from './core/core.module';
-import { TasksModule } from './tasks/tasks.module';
+import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
 
 // add this line if you don't have access to
 // index.html and you want to set base tag
 // import { APP_BASE_HREF } from '@angular/common';
 
-import { AppRoutingModule, appRouterComponents } from './app.routing.module';
+import { CoreModule } from './core/core.module';
+import { TasksModule } from './tasks/tasks.module';
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    appRouterComponents
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    CoreModule,
     TasksModule,
     AppRoutingModule,
     CoreModule
