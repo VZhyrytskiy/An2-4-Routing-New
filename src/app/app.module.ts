@@ -9,21 +9,20 @@ import { Router } from '@angular/router';
 
 import { CoreModule } from './core/core.module';
 import { TasksModule } from './tasks/tasks.module';
+import { UsersModule } from './users/users.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
     CoreModule,
     TasksModule,
-    AppRoutingModule,
-    CoreModule
+    UsersModule,
+    AppRoutingModule
   ],
   providers: [
     // add this line if you don't have access to
