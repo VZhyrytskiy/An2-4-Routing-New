@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 // import { APP_BASE_HREF } from '@angular/common';
 
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 import { AdminModule } from './admin/admin.module';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
@@ -21,10 +22,11 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     CoreModule,
+    SharedModule,
     TasksModule,
     UsersModule,
     AdminModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     // add this line if you don't have access to
