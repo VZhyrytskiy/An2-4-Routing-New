@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { switchMap } from 'rxjs/operators';
 import { Subscription } from 'rxjs/Subscription';
 
-import { DialogService, CanComponentDeactivate } from './../../../shared';
+import { DialogService, CanComponentDeactivate } from './../../../core';
 import { User } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
 

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { UsersComponent, UserListComponent, UserFormComponent } from '.';
 
-import { CanDeactivateGuard } from './../shared';
+import { CanDeactivateGuard } from './../core';
 
 const routes: Routes = [
   {

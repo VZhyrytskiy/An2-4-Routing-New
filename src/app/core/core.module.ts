@@ -7,6 +7,8 @@ import {
   PathNotFoundComponent,
   AuthGuard,
   AuthService,
+  CanDeactivateGuard,
+  DialogService,
   MessagesService
 } from '.';
 import { LoginComponent } from './components/login/login.component';
@@ -19,7 +21,7 @@ import { LoginComponent } from './components/login/login.component';
     MessagesComponent,
     LoginComponent
   ],
-  providers: [AuthGuard, AuthService, MessagesService]
+  providers: [AuthGuard, AuthService, CanDeactivateGuard, DialogService, MessagesService]
 })
 export class CoreModule {
   constructor(
