@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import {
   AboutComponent,
+  LoginComponent,
   MessagesComponent,
   PathNotFoundComponent,
   AuthGuard,
   AuthService,
   MessagesService
 } from '.';
-import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   imports: [CommonModule],
