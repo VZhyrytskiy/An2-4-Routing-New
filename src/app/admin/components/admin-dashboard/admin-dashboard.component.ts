@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 // rxjs
 import { Observable } from 'rxjs/Observable';
-import { map } from 'rxjs/operators';
+import { map } from 'rxjs/operators/map';
 
 @Component({
   templateUrl: 'admin-dashboard.component.html',
@@ -22,7 +22,7 @@ export class AdminDashboardComponent implements OnInit {
     this.sessionId = this.route
       .queryParamMap
       .pipe(
-        map(params => params.get('session_id') || 'None')
+        map(params => params.get('sessionId') || 'None')
       );
 
     // Capture the fragment if available
