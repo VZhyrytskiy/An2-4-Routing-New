@@ -10,7 +10,8 @@ import {
   AuthService,
   CanDeactivateGuard,
   DialogService,
-  MessagesService
+  MessagesService,
+  SpinnerService
 } from '.';
 
 @NgModule({
@@ -21,7 +22,7 @@ import {
     MessagesComponent,
     LoginComponent
   ],
-  providers: [AuthGuard, AuthService, CanDeactivateGuard, DialogService, MessagesService]
+  providers: [AuthGuard, AuthService, CanDeactivateGuard, DialogService, MessagesService, SpinnerService]
 })
 export class CoreModule {
   constructor(
