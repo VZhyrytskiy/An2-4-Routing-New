@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { TasksModule } from './tasks/tasks.module';
 
 import { AppComponent } from './app.component';
 
@@ -20,6 +21,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     CoreModule,
+    TasksModule,
     AppRoutingModule
   ],
   providers: [
