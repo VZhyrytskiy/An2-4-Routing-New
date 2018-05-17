@@ -33,8 +33,8 @@ export class TaskFormComponent implements OnInit {
     );
   }
 
-  saveTask() {
-    const task = {...this.task};
+  onSaveTask() {
+    const task = { ...this.task };
 
     if (task.id) {
       this.taskArrayService.updateTask(task);
@@ -43,6 +43,5 @@ export class TaskFormComponent implements OnInit {
     }
   }
 
-  goBack(): void {
-  }
+  goBack(): void {}
 }
