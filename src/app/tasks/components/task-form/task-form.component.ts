@@ -10,16 +10,14 @@ import { TaskArrayService } from './../../services/task-array.service';
 export class TaskFormComponent implements OnInit {
   task: Task;
 
-  constructor(
-    private taskArrayService: TaskArrayService,
-  ) { }
+  constructor(private taskArrayService: TaskArrayService) {}
 
   ngOnInit(): void {
     this.task = new Task(null, '', null, null);
   }
 
-  saveTask() {
-    const task = {...this.task};
+  onSaveTask() {
+    const task = { ...this.task };
 
     if (task.id) {
       this.taskArrayService.updateTask(task);
@@ -28,6 +26,5 @@ export class TaskFormComponent implements OnInit {
     }
   }
 
-  goBack(): void {
-  }
+  goBack(): void {}
 }
