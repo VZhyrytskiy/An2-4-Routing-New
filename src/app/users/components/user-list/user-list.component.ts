@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // rxjs
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { User } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
