@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 // rxjs
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import { User } from './../models/user.model';
