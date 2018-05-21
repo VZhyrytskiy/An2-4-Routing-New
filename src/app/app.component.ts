@@ -7,7 +7,7 @@ import { SpinnerService } from './shared';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   constructor(
@@ -27,8 +27,8 @@ export class AppComponent {
     console.log('Deactivated Component', $event);
   }
 
-  displayMessages(): void {
+  onDisplayMessages(): void {
     this.router.navigate([{ outlets: { popup: ['messages'] } }]);
     this.messagesService.isDisplayed = true;
   }
- }
+}
