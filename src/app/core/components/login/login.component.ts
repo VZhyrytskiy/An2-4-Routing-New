@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit, OnDestroy {
         // Set our navigation extras object
         // that passes on our global query params and fragment
         const navigationExtras: NavigationExtras = {
-          // preserveQueryParams: true,
           queryParamsHandling: 'preserve', // or 'merge'
           preserveFragment: true
         };
