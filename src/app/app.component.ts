@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';
 
 // rxjs
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
 import { MessagesService, SpinnerService } from './core';
@@ -11,7 +11,7 @@ import { MessagesService, SpinnerService } from './core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
   private sub: Subscription;
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private router: Router,
     public spinnerService: SpinnerService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.setPageTitles();
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  displayMessages(): void {
+  onDisplayMessages(): void {
     this.router.navigate([{ outlets: { popup: ['messages'] } }]);
     this.messagesService.isDisplayed = true;
   }
@@ -76,9 +76,6 @@ export class AppComponent implements OnInit, OnDestroy {
         filter(route => route.outlet === 'primary'),
         switchMap(route => route.data)
       )
-      .subscribe(
-         data => this.titleService.setTitle(data['title'])
-      );
+      .subscribe(data => this.titleService.setTitle(data['title']));
   }
 }
-
