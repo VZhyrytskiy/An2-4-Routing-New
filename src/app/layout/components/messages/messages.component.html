@@ -4,8 +4,15 @@
     <a class="btn btn-default" (click)="onClose()">x</a>
   </span>
 </div>
+<div>
+  <textarea [(ngModel)]="message"></textarea>
+</div>
+<div>
+  <button type="button" class="btn btn-primary" (click)="onSend()">Send</button>
+</div>
 <div *ngFor="let message of messagesService.getMessages(); let i=index">
   <div class="message-row">
     {{message}}
   </div>
 </div>
+
