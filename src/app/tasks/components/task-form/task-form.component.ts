@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Task } from './../../models/task.model';
+import { TaskModel } from './../../models/task.model';
 import { TaskArrayService } from './../../services/task-array.service';
 
 @Component({
@@ -8,12 +8,12 @@ import { TaskArrayService } from './../../services/task-array.service';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-  task: Task;
+  task: TaskModel;
 
   constructor(private taskArrayService: TaskArrayService) {}
 
   ngOnInit(): void {
-    this.task = new Task(null, '', null, null);
+    this.task = new TaskModel();
   }
 
   onSaveTask() {
@@ -26,5 +26,5 @@ export class TaskFormComponent implements OnInit {
     }
   }
 
-  goBack(): void {}
+  onGoBack(): void {}
 }
