@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 // rxjs
 import { switchMap } from 'rxjs/operators';
 
-import { Task } from './../../models/task.model';
+import { TaskModel } from './../../models/task.model';
 import { TaskArrayService } from './../../services/task-array.service';
 
 @Component({
@@ -13,7 +13,7 @@ import { TaskArrayService } from './../../services/task-array.service';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-  task: Task;
+  task: TaskModel;
 
   constructor(
     private taskArrayService: TaskArrayService,
@@ -22,7 +22,7 @@ export class TaskFormComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.task = new Task(null, '', null, null);
+    this.task = new TaskModel();
 
     // it is not necessary to save subscription to route.paramMap
     // it handles automatically
@@ -44,10 +44,10 @@ export class TaskFormComponent implements OnInit {
       this.taskArrayService.addTask(task);
     }
 
-    this.goBack();
+    this.onGoBack();
   }
 
-  goBack(): void {
+  onGoBack(): void {
     this.location.back();
   }
 }
