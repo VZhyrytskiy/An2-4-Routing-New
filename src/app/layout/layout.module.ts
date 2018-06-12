@@ -7,4 +7,4 @@ import { AboutComponent, PathNotFoundComponent } from '.';
   imports: [CommonModule],
   declarations: [AboutComponent, PathNotFoundComponent]
 })
-export class CoreModule {}
+export class LayoutModule {}
