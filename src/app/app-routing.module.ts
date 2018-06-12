@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AboutComponent, MessagesComponent, PathNotFoundComponent } from './core';
+import { AboutComponent, PathNotFoundComponent } from './layout';
 
 const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
-  },
-  {
-    path: 'messages',
-    component: MessagesComponent,
-    outlet: 'popup'
   },
   {
     path: '',
@@ -27,13 +22,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
+  imports: [RouterModule.forRoot(routes)],
   // re-export RouterModule in order to have access
   // to its directives in main module.
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
