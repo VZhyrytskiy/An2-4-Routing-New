@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 // import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
+import { LayoutModule } from './layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     FormsModule,
-    CoreModule
+    LayoutModule
   ],
   providers: [
     // add this line if you don't have access to
