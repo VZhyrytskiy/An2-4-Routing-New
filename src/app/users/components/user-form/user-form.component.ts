@@ -1,11 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 // rxjs
-// import { switchMap } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
 
-import { User } from './../../models/user.model';
+import { UserModel } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
 
 @Component({
@@ -13,8 +12,8 @@ import { UserArrayService } from './../../services/user-array.service';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit, OnDestroy {
-  user: User;
-  originalUser: User;
+  user: UserModel;
+  originalUser: UserModel;
 
   private sub: Subscription;
 
@@ -24,7 +23,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.user = new User(null, '', '');
+    this.user = new UserModel(null, '', '');
 
     // we should recreate component because this code runs only once
     const id = +this.route.snapshot.paramMap.get('userID');
@@ -52,5 +51,5 @@ export class UserFormComponent implements OnInit, OnDestroy {
     this.originalUser = { ...this.user };
   }
 
-  goBack() {}
+  onGoBack() {}
 }

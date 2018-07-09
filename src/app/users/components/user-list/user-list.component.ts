@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // rxjs
 import { Observable } from 'rxjs';
 
-import { User } from './../../models/user.model';
+import { UserModel } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { UserArrayService } from './../../services/user-array.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users$: Observable<Array<User>>;
+  users$: Observable<Array<UserModel>>;
 
   constructor(
     private userArrayService: UserArrayService,
