@@ -3,12 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
+import { UsersServicesModule } from './users-services.module';
 
-import { UserComponent, UserArrayService } from '.';
+import { UserComponent } from '.';
 
 @NgModule({
-  imports: [CommonModule, FormsModule],
-  declarations: [UserComponent],
-  providers: [UserArrayService]
+  imports: [CommonModule, FormsModule, UsersRoutingModule, UsersServicesModule],
+  declarations: [UserComponent]
 })
 export class UsersModule {}

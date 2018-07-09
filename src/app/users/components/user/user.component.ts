@@ -1,6 +1,6 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
-import { User } from './../../models/user.model';
+import { UserModel } from './../../models/user.model';
 
 @Component({
   selector: 'app-user',
@@ -9,7 +9,7 @@ import { User } from './../../models/user.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent {
-  @Input() user: User;
+  @Input() user: UserModel;
 
   onEditUser() {
 
