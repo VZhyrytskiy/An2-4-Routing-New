@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { AuthService } from './../../../core';
 
@@ -12,7 +13,7 @@ import { AuthService } from './../../../core';
 export class LoginComponent implements OnInit, OnDestroy {
   message: string;
 
-  private sub: Subscription;
+  private unsubscribe: Subject<void> = new Subject();
 
   constructor(public authService: AuthService, private router: Router) {}
 
@@ -21,25 +22,36 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.sub) {
-      this.sub.unsubscribe();
-    }
+    console.log('[takeUntil ngOnDestroy]');
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 
   onLogin() {
     this.message = 'Trying to log in ...';
-    this.sub = this.authService.login().subscribe(() => {
-      this.setMessage();
-      if (this.authService.isLoggedIn) {
-        // Get the redirect URL from our auth service
-        // If no redirect has been set, use the default
-        const redirect = this.authService.redirectUrl
-          ? this.authService.redirectUrl
-          : '/admin';
-        // Redirect the user
-        this.router.navigate([redirect]);
-      }
-    });
+    this.authService
+      .login()
+      // The TakeUntil subscribes and begins mirroring the source Observable.
+      // It also monitors a second Observable that you provide.
+      // If this second Observable emits an item or sends a termination notification,
+      // the Observable returned by TakeUntil stops mirroring the source Observable and terminates.
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(
+        () => {
+          this.setMessage();
+          if (this.authService.isLoggedIn) {
+            // Get the redirect URL from our auth service
+            // If no redirect has been set, use the default
+            const redirect = this.authService.redirectUrl
+              ? this.authService.redirectUrl
+              : '/admin';
+            // Redirect the user
+            this.router.navigate([redirect]);
+          }
+        },
+        err => console.log(err),
+        () => console.log('[takeUntil] complete')
+      );
   }
 
   onLogout() {
