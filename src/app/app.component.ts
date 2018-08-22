@@ -26,7 +26,7 @@ export class AppComponent {
   }
 
   onDisplayMessages(): void {
-    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
+    this.router.navigate([{ outlets: { messages: ['messages'] } }]);
     this.messagesService.isDisplayed = true;
   }
 }
