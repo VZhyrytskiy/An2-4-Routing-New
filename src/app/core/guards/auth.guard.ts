@@ -7,10 +7,12 @@ import {
 } from '@angular/router';
 
 import { Observable } from 'rxjs';
+import { CoreModule } from '../core.module';
+import { AuthService } from '../services/auth.service';
 
-import { AuthService } from './../services/auth.service';
-
-@Injectable()
+@Injectable({
+  providedIn: CoreModule
+})
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -18,6 +20,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
+    console.log('CanActivateGuard is called');
     const { url } = state;
     return this.checkLogin(url);
   }

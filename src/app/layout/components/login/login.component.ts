@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
-import { AuthService } from './../../services/auth.service';
+import { AuthService } from './../../../core';
 
 @Component({
   templateUrl: './login.component.html',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
 
-  constructor(public authService: AuthService, public router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.setMessage();
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 
-  login() {
+  onLogin() {
     this.message = 'Trying to log in ...';
     this.sub = this.authService.login().subscribe(() => {
       this.setMessage();
@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
-  logout() {
+  onLogout() {
     this.authService.logout();
     this.setMessage();
   }
