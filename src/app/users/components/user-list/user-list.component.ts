@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 // rxjs
 import { Observable } from 'rxjs';
 
-import { User } from './../../models/user.model';
+import { UserModel } from './../../models/user.model';
 import { UserArrayService } from './../../services/user-array.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { UserArrayService } from './../../services/user-array.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users$: Observable<Array<User>>;
+  users$: Observable<Array<UserModel>>;
 
   constructor(
     private userArrayService: UserArrayService,
@@ -24,7 +24,7 @@ export class UserListComponent implements OnInit {
     this.users$ = this.userArrayService.getUsers();
   }
 
-  onEditUser(user: User) {
+  onEditUser(user: UserModel) {
     const link = ['/users/edit', user.id];
     this.router.navigate(link);
     // or
