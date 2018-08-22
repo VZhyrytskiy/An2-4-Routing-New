@@ -1,17 +1,9 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {
-  AboutComponent,
-  MessagesComponent,
-  PathNotFoundComponent,
-  MessagesService
-} from '.';
-
 @NgModule({
   imports: [CommonModule],
-  declarations: [AboutComponent, PathNotFoundComponent, MessagesComponent],
-  providers: [MessagesService]
+  declarations: []
 })
 export class CoreModule {
   constructor(
