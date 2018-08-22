@@ -30,7 +30,7 @@ export class UserArrayService {
     );
   }
 
-  addUser(user: UserModel): void {
+  createUser(user: UserModel): void {
     userList.push(user);
   }
 
