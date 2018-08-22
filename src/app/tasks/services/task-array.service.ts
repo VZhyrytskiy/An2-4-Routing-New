@@ -25,7 +25,7 @@ export class TaskArrayService {
       .catch(() => Promise.reject('Error in getTask method'));
   }
 
-  addTask(task: TaskModel): void {
+  createTask(task: TaskModel): void {
     taskList.push(task);
   }
 

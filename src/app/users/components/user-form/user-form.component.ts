@@ -46,7 +46,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     if (user.id) {
       this.userArrayService.updateUser(user);
     } else {
-      this.userArrayService.addUser(user);
+      this.userArrayService.createUser(user);
     }
     this.originalUser = { ...this.user };
   }
