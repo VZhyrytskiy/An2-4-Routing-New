@@ -40,7 +40,7 @@ export class TaskFormComponent implements OnInit {
     if (task.id) {
       this.taskArrayService.updateTask(task);
     } else {
-      this.taskArrayService.addTask(task);
+      this.taskArrayService.createTask(task);
     }
 
     this.onGoBack();
