@@ -6,8 +6,11 @@ import {
 } from '@angular/router';
 
 import { Observable } from 'rxjs';
+import { CoreModule } from '../core.module';
 
-@Injectable()
+@Injectable({
+  providedIn: CoreModule
+})
 export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
