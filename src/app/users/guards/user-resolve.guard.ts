@@ -5,23 +5,26 @@ import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { delay, map, catchError, finalize } from 'rxjs/operators';
 
-import { User } from './../models/user.model';
+import { UserModel } from './../models/user.model';
 import { UserArrayService } from './../services/user-array.service';
-import { SpinnerService } from './../../shared';
+import { SpinnerService } from './../../core';
+import { UsersServicesModule } from '../users-services.module';
 
-@Injectable()
-export class UserResolveGuard implements Resolve<User> {
+@Injectable({
+  providedIn: UsersServicesModule
+})
+export class UserResolveGuard implements Resolve<UserModel> {
   constructor(
     private userArrayService: UserArrayService,
     private router: Router,
     private spinner: SpinnerService
   ) {}
 
-  resolve(route: ActivatedRouteSnapshot): Observable<User | null> {
+  resolve(route: ActivatedRouteSnapshot): Observable<UserModel | null> {
     console.log('UserResolve Guard is called');
 
     if (!route.paramMap.has('userID')) {
-      return of(new User(null, '', ''));
+      return of(new UserModel(null, '', ''));
     }
 
     this.spinner.show();
@@ -29,16 +32,17 @@ export class UserResolveGuard implements Resolve<User> {
 
     return this.userArrayService.getUser(id).pipe(
       delay(2000),
-      map(user => {
+      map((user: UserModel) => {
         if (user) {
           return user;
         } else {
           this.router.navigate(['/users']);
-          return of(null);
+          return null;
         }
       }),
       catchError(() => {
         this.router.navigate(['/users']);
+        // catchError MUST return observable
         return of(null);
       }),
       finalize(() => this.spinner.hide())

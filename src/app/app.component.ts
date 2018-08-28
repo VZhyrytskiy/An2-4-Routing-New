@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessagesService, SpinnerService } from './core';
 
-import { MessagesService } from './core';
-import { SpinnerService } from './shared';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +27,7 @@ export class AppComponent {
   }
 
   onDisplayMessages(): void {
-    this.router.navigate([{ outlets: { popup: ['messages'] } }]);
+    this.router.navigate([{ outlets: { messages: ['messages'] } }]);
     this.messagesService.isDisplayed = true;
   }
 }
