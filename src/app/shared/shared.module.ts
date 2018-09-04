@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { SpinnerComponent, SpinnerService } from '.';
+import { SpinnerComponent } from '.';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule, FormsModule],
   declarations: [SpinnerComponent],
-  exports: [SpinnerComponent],
-  providers: [SpinnerService]
+  exports: [FormsModule, SpinnerComponent]
 })
-export class SharedModule { }
+export class SharedModule {}
