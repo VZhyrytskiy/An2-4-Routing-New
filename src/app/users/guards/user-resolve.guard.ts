@@ -3,7 +3,7 @@ import { Router, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
 // rxjs
 import { Observable, of } from 'rxjs';
-import { delay, map, catchError, finalize } from 'rxjs/operators';
+import { delay, map, catchError, finalize, take } from 'rxjs/operators';
 
 import { UserModel } from './../models/user.model';
 import { UserArrayService } from './../services/user-array.service';
@@ -40,6 +40,7 @@ export class UserResolveGuard implements Resolve<UserModel> {
           return null;
         }
       }),
+      take(1),
       catchError(() => {
         this.router.navigate(['/users']);
         // catchError MUST return observable
