@@ -5,10 +5,9 @@ import {
   AboutComponent,
   MessagesComponent,
   LoginComponent,
-  PathNotFoundComponent,
-  AuthGuard,
-  CustomPreloadingStrategyService
-} from './core';
+  PathNotFoundComponent
+} from './layout';
+import { AuthGuard, CustomPreloadingStrategyService } from './core';
 
 const routes: Routes = [
   {
@@ -38,8 +37,9 @@ const routes: Routes = [
   {
     path: 'messages',
     component: MessagesComponent,
-    outlet: 'popup'
+    outlet: 'messages'
   },
+
   {
     path: '',
     redirectTo: '/home',
