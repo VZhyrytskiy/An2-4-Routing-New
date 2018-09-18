@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AboutComponent, MessagesComponent, LoginComponent, PathNotFoundComponent, AuthGuard } from './core';
+import { AboutComponent, MessagesComponent, LoginComponent, PathNotFoundComponent } from './layout';
+import { AuthGuard } from './core';
 
 const routes: Routes = [
   {
@@ -24,8 +25,9 @@ const routes: Routes = [
   {
     path: 'messages',
     component: MessagesComponent,
-    outlet: 'popup'
+    outlet: 'messages'
   },
+
   {
     path: '',
     redirectTo: '/home',
@@ -40,13 +42,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
+  imports: [RouterModule.forRoot(routes)],
   // re-export RouterModule in order to have access
   // to its directives in main module.
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
