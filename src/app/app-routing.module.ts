@@ -21,11 +21,11 @@ const routes: Routes = [
   {
     path: 'admin',
     canLoad: [AuthGuard],
-    loadChildren: 'app/admin/admin.module#AdminModule'
+    loadChildren: './admin/admin.module#AdminModule'
   },
   {
     path: 'users',
-    loadChildren: 'app/users/users.module#UsersModule',
+    loadChildren: './users/users.module#UsersModule',
     data: { preload: true }
   },
   {
