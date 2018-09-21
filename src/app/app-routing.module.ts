@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AboutComponent, MessagesComponent, LoginComponent, PathNotFoundComponent } from './layout';
+import {
+  AboutComponent,
+  MessagesComponent,
+  LoginComponent,
+  PathNotFoundComponent
+} from './layout';
 
 const routes: Routes = [
   {
@@ -45,4 +50,4 @@ const routes: Routes = [
   // to its directives in main module.
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
