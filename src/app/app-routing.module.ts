@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules, ExtraOptions } from '@angular/router';
 
-import { AboutComponent, MessagesComponent, LoginComponent, PathNotFoundComponent } from './layout';
+import {
+  AboutComponent,
+  MessagesComponent,
+  LoginComponent,
+  PathNotFoundComponent
+} from './layout';
 import { AuthGuard } from './core';
 
 const routes: Routes = [
@@ -16,11 +21,11 @@ const routes: Routes = [
   {
     path: 'admin',
     canLoad: [AuthGuard],
-    loadChildren: 'app/admin/admin.module#AdminModule'
+    loadChildren: './admin/admin.module#AdminModule'
   },
   {
     path: 'users',
-    loadChildren: 'app/users/users.module#UsersModule'
+    loadChildren: './users/users.module#UsersModule'
   },
   {
     path: 'messages',
@@ -55,4 +60,4 @@ const extraOptions: ExtraOptions = {
   // to its directives in main module.
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
