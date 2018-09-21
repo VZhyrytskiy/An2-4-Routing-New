@@ -7,7 +7,7 @@ import {
   MessagesComponent,
   LoginComponent,
   PathNotFoundComponent
-} from '.';
+} from './components';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
