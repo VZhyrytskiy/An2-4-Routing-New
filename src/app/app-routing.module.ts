@@ -19,11 +19,11 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    loadChildren: 'app/admin/admin.module#AdminModule'
+    loadChildren: './admin/admin.module#AdminModule'
   },
   {
     path: 'users',
-    loadChildren: 'app/users/users.module#UsersModule'
+    loadChildren: './users/users.module#UsersModule'
   },
   {
     path: 'messages',
