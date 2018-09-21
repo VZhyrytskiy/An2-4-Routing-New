@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { UsersComponent, UserListComponent, UserFormComponent } from '.';
+import { UsersComponent } from './users.component';
+import { UserListComponent, UserFormComponent } from './components';
 
 const routes: Routes = [
   {
@@ -14,18 +15,21 @@ const routes: Routes = [
       },
       {
         path: 'edit/:userID',
-        component: UserFormComponent,
+        component: UserFormComponent
       },
       {
         path: '',
         component: UserListComponent
-      },
+      }
     ]
   }
 ];
 
-export let usersRouterComponents = [UsersComponent, UserListComponent, UserFormComponent];
-
+export let usersRouterComponents = [
+  UsersComponent,
+  UserListComponent,
+  UserFormComponent
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
