@@ -8,7 +8,7 @@ import {
 } from './users-routing.module';
 import { UsersServicesModule } from './users-services.module';
 
-import { UserComponent } from '.';
+import { UserComponent } from './components';
 
 @NgModule({
   imports: [CommonModule, FormsModule, UsersRoutingModule, UsersServicesModule],
