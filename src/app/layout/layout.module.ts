@@ -2,8 +2,7 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { AboutComponent, PathNotFoundComponent } from '.';
-import { MessagesComponent } from './components/messages/messages.component';
+import { AboutComponent, MessagesComponent, PathNotFoundComponent } from './components';
 
 @NgModule({
   imports: [CommonModule, FormsModule],
