@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, UrlTree } from '@angular/router';
 
 // rxjs
 import { Observable, Subscription } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 import { DialogService, CanComponentDeactivate } from './../../../core';
 import { UserModel } from './../../models/user.model';
@@ -13,7 +12,8 @@ import { UserArrayService } from './../../services/user-array.service';
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.css']
 })
-export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactivate {
+export class UserFormComponent
+  implements OnInit, OnDestroy, CanComponentDeactivate {
   user: UserModel;
   originalUser: UserModel;
 
@@ -24,7 +24,7 @@ export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactiv
     private route: ActivatedRoute,
     private router: Router,
     private dialogService: DialogService
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.user = new UserModel(null, '', '');
@@ -50,20 +50,23 @@ export class UserFormComponent implements OnInit, OnDestroy, CanComponentDeactiv
     if (user.id) {
       this.userArrayService.updateUser(user);
       // optional parameter: http://localhost:4200/users;id=2
-      this.router.navigate(['/users', {editedUserID: user.id}]);
+      this.router.navigate(['/users', { editedUserID: user.id }]);
     } else {
       this.userArrayService.createUser(user);
       this.onGoBack();
     }
-    this.originalUser = {...this.user};
+    this.originalUser = { ...this.user };
   }
 
   onGoBack() {
-    this.router.navigate(['./../../'], { relativeTo: this.route});
-
+    this.router.navigate(['./../../'], { relativeTo: this.route });
   }
 
-  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+  canDeactivate():
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
     const flags = Object.keys(this.originalUser).map(key => {
       if (this.originalUser[key] === this.user[key]) {
         return true;
