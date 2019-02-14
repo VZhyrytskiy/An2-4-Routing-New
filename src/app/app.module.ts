@@ -13,6 +13,7 @@ import { LayoutModule } from './layout/layout.module';
 import { TasksModule } from './tasks/tasks.module';
 import { UsersModule } from './users/users.module';
 import { AppRoutingModule } from './app-routing.module';
+import { SpinnerModule } from './widgets/spinner/spinner.module';
 
 import { AppComponent } from './app.component';
 
@@ -26,7 +27,8 @@ import { AppComponent } from './app.component';
     TasksModule,
     UsersModule,
     AdminModule,
-    AppRoutingModule,
+    SpinnerModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     // add this line if you don't have access to
