@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MessagesService, SpinnerService } from './core';
 
+import { MessagesService } from './core';
+import { SpinnerService } from './widgets';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent {
     private router: Router,
     public messagesService: MessagesService,
     public spinnerService: SpinnerService
-  ) { }
+  ) {}
 
   /**
    * @param $event - component instance
