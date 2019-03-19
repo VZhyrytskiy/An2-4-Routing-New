@@ -6,8 +6,8 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
-import { MessagesService, SpinnerService } from './core';
-
+import { MessagesService } from './core';
+import { SpinnerService } from './widgets';
 
 @Component({
   selector: 'app-root',
@@ -52,13 +52,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this.sub = this.router.events
       .pipe(
         // NavigationStart, NavigationEnd, NavigationCancel,
-        // NavigationError, RoutesRecognized
-        // experimental: RouteConfigLoadStart, RouteConfigLoadEnd
+        // NavigationError, RoutesRecognized, ...
         filter(event => event instanceof NavigationEnd),
 
         // access to router state, we swap what we’re observing
         // better alternative to accessing the routerState.root directly,
-        // is toinject the ActivatedRoute
+        // is to inject the ActivatedRoute
         // .map(() => this.activatedRoute)
         map(() => this.router.routerState.root),
 
