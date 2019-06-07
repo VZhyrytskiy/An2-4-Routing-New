@@ -11,12 +11,7 @@ import {
 import { UserComponent } from './components';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    UsersRoutingModule,
-    UsersServicesModule
-  ],
+  imports: [CommonModule, FormsModule, UsersRoutingModule, UsersServicesModule],
   declarations: [usersRouterComponents, UserComponent]
 })
 export class UsersModule {}
