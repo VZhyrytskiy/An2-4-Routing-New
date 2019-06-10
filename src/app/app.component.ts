@@ -30,7 +30,7 @@ export class AppComponent implements OnInit, OnDestroy {
       `Preloading Modules: `,
       this.preloadingStrategy.preloadedModules
     );
-    this.setPageTitles();
+    // this.setPageTitles();
   }
 
   ngOnDestroy() {
@@ -47,6 +47,8 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   onActivate($event: any, routerOutlet: RouterOutlet) {
     console.log('Activated Component', $event, routerOutlet);
+    // another way to set titles
+    this.titleService.setTitle(routerOutlet.activatedRouteData.title);
   }
 
   onDeactivate($event: any, routerOutlet: RouterOutlet) {
