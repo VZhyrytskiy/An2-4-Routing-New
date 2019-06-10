@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 
-import { MessagesService } from './core';
+import { MessagesService, CustomPreloadingStrategyService } from './core';
 import { SpinnerService } from './widgets';
 
 @Component({
@@ -9,12 +9,20 @@ import { SpinnerService } from './widgets';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     private router: Router,
     public messagesService: MessagesService,
-    public spinnerService: SpinnerService
+    public spinnerService: SpinnerService,
+    private preloadingStrategy: CustomPreloadingStrategyService
   ) {}
+
+  ngOnInit() {
+    console.log(
+      `Preloading Modules: `,
+      this.preloadingStrategy.preloadedModules
+    );
+  }
 
   /**
    * @param $event - component instance
