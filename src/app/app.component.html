@@ -25,9 +25,11 @@
         </nav>
 
         <div class="container">
+          <!-- #routerOutlet="outlet" - access to the properties of router-outlet directive -->
           <router-outlet
-              (activate)='onActivate($event)'
-              (deactivate)='onDeactivate($event)'>
+              #routerOutlet="outlet"
+              (activate)='onActivate($event, routerOutlet)'
+              (deactivate)='onDeactivate($event, routerOutlet)'>
           </router-outlet>
           <!-- Routed views go here -->
         </div>
