@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 
 // rxjs
 import { Subscription } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
-import { MessagesService } from './core';
+import { MessagesService, CustomPreloadingStrategyService } from './core';
 import { SpinnerService } from './widgets';
 
 @Component({
@@ -22,11 +22,16 @@ export class AppComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private metaService: Meta,
     private router: Router,
-    public spinnerService: SpinnerService
+    public spinnerService: SpinnerService,
+    private preloadingStrategy: CustomPreloadingStrategyService
   ) {}
 
   ngOnInit() {
-    this.setPageTitlesAndMeta();
+    console.log(
+      `Preloading Modules: `,
+      this.preloadingStrategy.preloadedModules
+    );
+    // this.setPageTitles();
   }
 
   ngOnDestroy() {
@@ -41,12 +46,15 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
    * @param $event - component instance
    */
-  onActivate($event) {
-    console.log('Activated Component', $event);
+  onActivate($event: any, routerOutlet: RouterOutlet) {
+    console.log('Activated Component', $event, routerOutlet);
+    // another way to set titles
+    this.titleService.setTitle(routerOutlet.activatedRouteData.title);
+    this.metaService.addTags(routerOutlet.activatedRouteData.meta);
   }
 
-  onDeactivate($event) {
-    console.log('Deactivated Component', $event);
+  onDeactivate($event: any, routerOutlet: RouterOutlet) {
+    console.log('Deactivated Component', $event, routerOutlet);
   }
 
   private setPageTitlesAndMeta() {
@@ -77,10 +85,6 @@ export class AppComponent implements OnInit, OnDestroy {
         filter(route => route.outlet === 'primary'),
         switchMap(route => route.data)
       )
-      .subscribe(
-      data => {
-        this.titleService.setTitle(data['title']);
-        this.metaService.addTags(data['meta']);
-      });
+      .subscribe(data => this.titleService.setTitle(data['title']));
   }
 }
