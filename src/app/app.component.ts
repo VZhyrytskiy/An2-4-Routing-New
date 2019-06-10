@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 import { MessagesService } from './core';
 import { SpinnerService } from './widgets';
@@ -19,12 +19,12 @@ export class AppComponent {
   /**
    * @param $event - component instance
    */
-  onActivate($event) {
-    console.log('Activated Component', $event);
+  onActivate($event: any, routerOutlet: RouterOutlet) {
+    console.log('Activated Component', $event, routerOutlet);
   }
 
-  onDeactivate($event) {
-    console.log('Deactivated Component', $event);
+  onDeactivate($event: any, routerOutlet: RouterOutlet) {
+    console.log('Deactivated Component', $event, routerOutlet);
   }
 
   onDisplayMessages(): void {
