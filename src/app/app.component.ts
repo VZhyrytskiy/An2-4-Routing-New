@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 
 // rxjs
 import { Subscription } from 'rxjs';
 import { filter, map, switchMap } from 'rxjs/operators';
 
-import { MessagesService } from './core';
+import { MessagesService, CustomPreloadingStrategyService } from './core';
 import { SpinnerService } from './widgets';
 
 @Component({
@@ -21,10 +21,15 @@ export class AppComponent implements OnInit, OnDestroy {
     public messagesService: MessagesService,
     private titleService: Title,
     private router: Router,
-    public spinnerService: SpinnerService
+    public spinnerService: SpinnerService,
+    private preloadingStrategy: CustomPreloadingStrategyService
   ) {}
 
   ngOnInit() {
+    console.log(
+      `Preloading Modules: `,
+      this.preloadingStrategy.preloadedModules
+    );
     this.setPageTitles();
   }
 
@@ -40,12 +45,12 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
    * @param $event - component instance
    */
-  onActivate($event) {
-    console.log('Activated Component', $event);
+  onActivate($event: any, routerOutlet: RouterOutlet) {
+    console.log('Activated Component', $event, routerOutlet);
   }
 
-  onDeactivate($event) {
-    console.log('Deactivated Component', $event);
+  onDeactivate($event: any, routerOutlet: RouterOutlet) {
+    console.log('Deactivated Component', $event, routerOutlet);
   }
 
   private setPageTitles() {
