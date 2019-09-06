@@ -11,7 +11,7 @@ const metaTags: Array<MetaDefinition> = [
   },
   {
     name: 'keywords',
-    content: 'Angular 7 tutorial, SPA Application, Routing'
+    content: 'Angular tutorial, SPA Application, Routing'
   }
 ];
 
