@@ -35,7 +35,7 @@ export class TaskFormComponent implements OnInit {
   }
 
   onSaveTask() {
-    const task = { ...this.task };
+    const task = { ...this.task } as TaskModel;
 
     if (task.id) {
       this.taskArrayService.updateTask(task);
