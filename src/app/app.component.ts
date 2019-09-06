@@ -30,11 +30,11 @@ export class AppComponent implements OnInit, OnDestroy {
       `Preloading Modules: `,
       this.preloadingStrategy.preloadedModules
     );
-    this.setPageTitles();
+    // this.setPageTitles();
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    // this.sub.unsubscribe();
   }
 
   onDisplayMessages(): void {
@@ -47,6 +47,8 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   onActivate($event: any, routerOutlet: RouterOutlet) {
     console.log('Activated Component', $event, routerOutlet);
+    // another way to set titles
+    this.titleService.setTitle(routerOutlet.activatedRouteData.title);
   }
 
   onDeactivate($event: any, routerOutlet: RouterOutlet) {
@@ -81,6 +83,6 @@ export class AppComponent implements OnInit, OnDestroy {
         filter(route => route.outlet === 'primary'),
         switchMap(route => route.data)
       )
-      .subscribe(data => this.titleService.setTitle(data['title']));
+      .subscribe(data => this.titleService.setTitle(data.title));
   }
 }
