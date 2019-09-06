@@ -51,7 +51,7 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     console.log('CanLoad Guard is activated');
     const url = `/${route.path}`;
 
-    return <boolean>this.checkLogin(url);
+    return this.checkLogin(url) as boolean;
   }
 
   private checkLogin(url: string): boolean | UrlTree {
