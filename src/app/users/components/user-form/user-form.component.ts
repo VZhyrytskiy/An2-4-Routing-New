@@ -28,13 +28,14 @@ export class UserFormComponent implements OnInit, OnDestroy {
 
     // we should recreate component because this code runs only once
     const id = +this.route.snapshot.paramMap.get('userID');
-    this.sub = this.userArrayService.getUser(id).subscribe(
-      user => {
+    const observer = {
+      next: (user: UserModel) => {
         this.user = { ...user };
         this.originalUser = { ...user };
       },
-      err => console.log(err)
-    );
+      error: (err: any) => console.log(err)
+    };
+    this.sub = this.userArrayService.getUser(id).subscribe(observer);
   }
 
   ngOnDestroy() {
