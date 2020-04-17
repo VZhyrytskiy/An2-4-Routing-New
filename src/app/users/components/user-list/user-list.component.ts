@@ -21,7 +21,7 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.users$ = this.userArrayService.getUsers();
+    this.users$ = this.userArrayService.users$;
   }
 
   onEditUser(user: UserModel) {
