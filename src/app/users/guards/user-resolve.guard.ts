@@ -7,10 +7,9 @@ import { map, catchError, take } from 'rxjs/operators';
 
 import { UserModel } from './../models/user.model';
 import { UserArrayService } from './../services/user-array.service';
-import { UsersServicesModule } from '../users-services.module';
 
 @Injectable({
-  providedIn: UsersServicesModule
+  providedIn: 'any'
 })
 export class UserResolveGuard implements Resolve<UserModel> {
   constructor(
