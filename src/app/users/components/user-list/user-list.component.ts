@@ -19,13 +19,12 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.users$ = this.userArrayService.users$
-    //   .pipe(
-    //     catchError(err => {
-    //       console.log(err);
-    //       return EMPTY;
-    //     })
-    //   );
-    this.users$ = EMPTY;
+    this.users$ = this.userArrayService.users$
+      .pipe(
+        catchError(err => {
+          console.log(err);
+          return EMPTY;
+        })
+      );
   }
 }
