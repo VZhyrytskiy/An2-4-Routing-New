@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { isAbsolute } from 'path';
 
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
@@ -8,18 +9,23 @@ import { delay, tap } from 'rxjs/operators';
 })
 export class AuthService {
   isLoggedIn = false;
+  isAdmin = false;
 
   // store the URL so we can redirect after logging in
   redirectUrl!: string;
 
-  login(): Observable<boolean> {
+  login(isAdmin: boolean = false): Observable<boolean> {
     return of(true).pipe(
       delay(1000),
-      tap(val => (this.isLoggedIn = val))
+      tap(val => {
+        this.isLoggedIn = val;
+        this.isAdmin = isAdmin;
+      })
     );
   }
 
   logout(): void {
     this.isLoggedIn = false;
+    this.isAdmin = false;
   }
 }
