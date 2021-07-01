@@ -13,7 +13,7 @@ import { UserArrayService } from './../../services/user-array.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users$: Observable<Array<UserModel>>;
+  users$!: Observable<Array<UserModel>>;
 
   private editedUser: UserModel;
 
@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.users$ = this.userArrayService.users$
       .pipe(
         catchError(err => {
@@ -51,7 +51,7 @@ export class UserListComponent implements OnInit {
       .subscribe(observer);
   }
 
-  onEditUser(user: UserModel) {
+  onEditUser(user: UserModel): void {
     const link = ['/users/edit', user.id];
     this.router.navigate(link);
     // or
@@ -64,5 +64,9 @@ export class UserListComponent implements OnInit {
       return user.id === this.editedUser.id;
     }
     return false;
+  }
+
+  trackByFn(index: number, user: UserModel): number | null {
+    return user.id;
   }
 }
