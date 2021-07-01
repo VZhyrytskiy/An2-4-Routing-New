@@ -12,7 +12,7 @@ import { TaskArrayService } from './../../services/task-array.service';
   styleUrls: ['./task-form.component.css']
 })
 export class TaskFormComponent implements OnInit {
-  task: TaskModel;
+  task!: TaskModel;
 
   constructor(
     private taskArrayService: TaskArrayService,
@@ -37,7 +37,7 @@ export class TaskFormComponent implements OnInit {
       .subscribe(observer);
   }
 
-  onSaveTask() {
+  onSaveTask(): void {
     const task = { ...this.task } as TaskModel;
 
     if (task.id) {
