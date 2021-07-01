@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { isAbsolute } from 'path';
 
 import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
