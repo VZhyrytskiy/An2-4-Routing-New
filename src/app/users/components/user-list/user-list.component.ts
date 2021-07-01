@@ -28,7 +28,7 @@ export class UserListComponent implements OnInit {
       );
   }
 
-  trackByFn(user: UserModel): number | null {
+  trackByFn(index: number, user: UserModel): number | null {
     return user.id;
   }
 }
