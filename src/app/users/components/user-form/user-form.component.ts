@@ -12,10 +12,10 @@ import { UserArrayService } from './../../services/user-array.service';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit, OnDestroy {
-  user: UserModel;
-  originalUser: UserModel;
+  user!: UserModel;
+  originalUser!: UserModel;
 
-  private sub: Subscription;
+  private sub!: Subscription;
 
   constructor(
     private userArrayService: UserArrayService,
@@ -26,7 +26,7 @@ export class UserFormComponent implements OnInit, OnDestroy {
     this.user = new UserModel(null, '', '');
 
     // we should recreate component because this code runs only once
-    const id = +this.route.snapshot.paramMap.get('userID');
+    const id = this.route.snapshot.paramMap.get('userID')!;
     const observer = {
       next: (user: UserModel) => {
         this.user = { ...user };
@@ -37,11 +37,11 @@ export class UserFormComponent implements OnInit, OnDestroy {
     this.sub = this.userArrayService.getUser(id).subscribe(observer);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
-  onSaveUser() {
+  onSaveUser(): void {
     const user = { ...this.user };
 
     if (user.id) {
@@ -52,5 +52,5 @@ export class UserFormComponent implements OnInit, OnDestroy {
     this.originalUser = { ...this.user };
   }
 
-  onGoBack() {}
+  onGoBack(): void {}
 }

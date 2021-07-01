@@ -9,9 +9,9 @@ import { UserModel } from './../../models/user.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent {
-  @Input() user: UserModel;
+  @Input() user!: UserModel;
 
-  onEditUser() {
+  onEditUser(): void {
 
   }
 }
