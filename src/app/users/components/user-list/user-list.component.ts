@@ -12,13 +12,13 @@ import { UserArrayService } from './../../services/user-array.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  users$: Observable<Array<UserModel>>;
+  users$!: Observable<Array<UserModel>>;
 
   constructor(
     private userArrayService: UserArrayService,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.users$ = this.userArrayService.users$
       .pipe(
         catchError(err => {
@@ -26,5 +26,9 @@ export class UserListComponent implements OnInit {
           return EMPTY;
         })
       );
+  }
+
+  trackByFn(user: UserModel): number | null {
+    return user.id;
   }
 }
