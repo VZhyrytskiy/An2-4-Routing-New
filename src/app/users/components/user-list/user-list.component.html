@@ -1,5 +1,5 @@
-<app-user 
-  *ngFor='let user of users$ | async' 
+<app-user
+  *ngFor='let user of users$ | async; trackBy: trackByFn'
   [user]="user"
   [class.edited]="isEdited(user)"
   (editUser)="onEditUser($event)">

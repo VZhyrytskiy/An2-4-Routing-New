@@ -14,10 +14,10 @@ import { UserArrayService } from './../../services/user-array.service';
 })
 export class UserFormComponent
   implements OnInit, OnDestroy, CanComponentDeactivate {
-  user: UserModel;
-  originalUser: UserModel;
+  user!: UserModel;
+  originalUser!: UserModel;
 
-  private sub: Subscription;
+  private sub!: Subscription;
 
   constructor(
     private userArrayService: UserArrayService,
@@ -30,7 +30,7 @@ export class UserFormComponent
     this.user = new UserModel(null, '', '');
 
     // we should recreate component because this code runs only once
-    const id = +this.route.snapshot.paramMap.get('userID');
+    const id = this.route.snapshot.paramMap.get('userID')!;
     const observer = {
       next: (user: UserModel) => {
         this.user = { ...user };
@@ -41,11 +41,11 @@ export class UserFormComponent
     this.sub = this.userArrayService.getUser(id).subscribe(observer);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
-  onSaveUser() {
+  onSaveUser(): void {
     const user = { ...this.user };
 
     if (user.id) {
@@ -59,7 +59,7 @@ export class UserFormComponent
     this.originalUser = { ...this.user };
   }
 
-  onGoBack() {
+  onGoBack(): void {
     this.router.navigate(['./../../'], { relativeTo: this.route });
   }
 
