@@ -8,11 +8,11 @@ import { TaskArrayService } from './../../services/task-array.service';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-  tasks: Promise<Array<TaskModel>>;
+  tasks!: Promise<Array<TaskModel>>;
 
   constructor(private taskArrayService: TaskArrayService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.tasks = this.taskArrayService.getTasks();
   }
 
