@@ -15,7 +15,7 @@ import { UserArrayService } from './../../services/user-array.service';
 export class UserListComponent implements OnInit {
   users$!: Observable<Array<UserModel>>;
 
-  private editedUser: UserModel;
+  private editedUser!: UserModel;
 
   constructor(
     private userArrayService: UserArrayService,
@@ -45,7 +45,7 @@ export class UserListComponent implements OnInit {
     this.route.paramMap
       .pipe(
         switchMap((params: ParamMap) =>
-          this.userArrayService.getUser(+params.get('editedUserID'))
+          this.userArrayService.getUser(params.get('editedUserID')!)
         )
       )
       .subscribe(observer);
