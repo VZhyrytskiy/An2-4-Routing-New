@@ -17,7 +17,7 @@ export class AdminDashboardComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Capture the session ID if available
     this.sessionId = this.route
       .queryParamMap
