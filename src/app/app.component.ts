@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     private preloadingStrategy: CustomPreloadingStrategyService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log(
       `Preloading Modules: `,
       this.preloadingStrategy.preloadedModules
