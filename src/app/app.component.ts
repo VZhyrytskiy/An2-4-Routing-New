@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private metaService: Meta
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log(
       `Preloading Modules: `,
       this.preloadingStrategy.preloadedModules
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.setMessageServiceOnRefresh();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sub.navigationStart.unsubscribe();
     // this.sub.navigationEnd.unsubscribe();
   }
@@ -48,18 +48,18 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
    * @param $event - component instance
    */
-  onActivate($event: any, routerOutlet: RouterOutlet) {
+  onActivate($event: any, routerOutlet: RouterOutlet): void {
     console.log('Activated Component', $event, routerOutlet);
     // another way to set titles
     this.titleService.setTitle(routerOutlet.activatedRouteData.title);
     this.metaService.addTags(routerOutlet.activatedRouteData.meta);
   }
 
-  onDeactivate($event: any, routerOutlet: RouterOutlet) {
+  onDeactivate($event: any, routerOutlet: RouterOutlet): void {
     console.log('Deactivated Component', $event, routerOutlet);
   }
 
-  private setPageTitles() {
+  private setPageTitles(): void {
     this.sub.navigationEnd = this.router.events
       .pipe(
         // NavigationStart, NavigationEnd, NavigationCancel,
@@ -90,11 +90,11 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe(data => this.titleService.setTitle(data.title));
   }
 
-  private setMessageServiceOnRefresh() {
+  private setMessageServiceOnRefresh(): void {
     this.sub.navigationStart = this.router.events
       .pipe(filter(event => event instanceof NavigationStart))
-      .subscribe((event: NavigationStart) => {
-        this.messagesService.isDisplayed = event.url.includes('messages:');
+      .subscribe(event => {
+        this.messagesService.isDisplayed = (event as NavigationStart).url.includes('messages:');
       });
 
   }
