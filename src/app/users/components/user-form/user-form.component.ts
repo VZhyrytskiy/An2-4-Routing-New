@@ -14,8 +14,8 @@ import { UserArrayService } from './../../services/user-array.service';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit, CanComponentDeactivate {
-  user: UserModel;
-  originalUser: UserModel;
+  user!: UserModel;
+  originalUser!: UserModel;
 
   constructor(
     private userArrayService: UserArrayService,
@@ -33,7 +33,7 @@ export class UserFormComponent implements OnInit, CanComponentDeactivate {
     });
   }
 
-  onSaveUser() {
+  onSaveUser(): void {
     const user = { ...this.user };
 
     if (user.id) {
@@ -47,7 +47,7 @@ export class UserFormComponent implements OnInit, CanComponentDeactivate {
     this.originalUser = { ...this.user };
   }
 
-  onGoBack() {
+  onGoBack(): void {
     this.router.navigate(['./../../'], { relativeTo: this.route });
   }
 
@@ -56,7 +56,7 @@ export class UserFormComponent implements OnInit, CanComponentDeactivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const flags = Object.keys(this.originalUser).map(key => {
+      const flags = (Object.keys(this.originalUser) as (keyof UserModel)[]).map(key => {
       if (this.originalUser[key] === this.user[key]) {
         return true;
       }
