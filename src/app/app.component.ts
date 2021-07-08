@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private preloadingStrategy: CustomPreloadingStrategyService
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log(
       `Preloading Modules: `,
       this.preloadingStrategy.preloadedModules
@@ -47,13 +47,13 @@ export class AppComponent implements OnInit, OnDestroy {
   /**
    * @param $event - component instance
    */
-  onActivate($event: any, routerOutlet: RouterOutlet) {
+  onActivate($event: any, routerOutlet: RouterOutlet): void {
     console.log('Activated Component', $event, routerOutlet);
     // another way to set titles
     this.titleService.setTitle(routerOutlet.activatedRouteData.title);
   }
 
-  onDeactivate($event: any, routerOutlet: RouterOutlet) {
+  onDeactivate($event: any, routerOutlet: RouterOutlet): void {
     console.log('Deactivated Component', $event, routerOutlet);
   }
 
