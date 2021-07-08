@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, UrlTree } from '@angular/router';
 
 // rxjs
 import { Observable } from 'rxjs';
-import { pluck } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { DialogService, CanComponentDeactivate } from './../../../core';
 import { UserModel } from './../../models/user.model';
@@ -27,7 +27,7 @@ export class UserFormComponent implements OnInit, CanComponentDeactivate {
   ngOnInit(): void {
     // data is an observable object
     // which contains custom and resolve data
-    this.route.data.pipe(pluck('user')).subscribe((user: UserModel) => {
+    this.route.data.pipe(map(data => data.user)).subscribe((user: UserModel) => {
       this.user = { ...user };
       this.originalUser = { ...user };
     });
