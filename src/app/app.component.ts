@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.setMessageServiceOnRefresh();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.sub.navigationStart.unsubscribe();
     // this.sub.navigationEnd.unsubscribe();
   }
@@ -57,7 +57,7 @@ export class AppComponent implements OnInit, OnDestroy {
     console.log('Deactivated Component', $event, routerOutlet);
   }
 
-  private setPageTitles() {
+  private setPageTitles(): void {
     this.sub.navigationEnd = this.router.events
       .pipe(
         // NavigationStart, NavigationEnd, NavigationCancel,
@@ -88,11 +88,11 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe(data => this.titleService.setTitle(data.title));
   }
 
-  private setMessageServiceOnRefresh() {
+  private setMessageServiceOnRefresh(): void {
     this.sub.navigationStart = this.router.events
       .pipe(filter(event => event instanceof NavigationStart))
-      .subscribe((event: NavigationStart) => {
-        this.messagesService.isDisplayed = event.url.includes('messages:');
+      .subscribe(event => {
+        this.messagesService.isDisplayed = (event as NavigationStart).url.includes('messages:');
       });
 
   }
